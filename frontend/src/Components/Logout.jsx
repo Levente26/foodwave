@@ -2,8 +2,8 @@
 
 const Logout = () => {
     return (
-        <div>
-            hello
+        <div className="logout">
+            Successfully logged out
         </div>
     )
 }

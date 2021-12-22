@@ -27,7 +27,11 @@ const Homepage = ( { setResturant } ) => {
         <div className='home'>
             <section className="header">
                 <h1 className="main-title">Food wave</h1>
-                <button onClick={showAllResturants}>Show all resturants!</button>
+                <button onClick={showAllResturants}>Show all resturants</button>
+            </section>
+            <section>
+                <h2 className='subtitle'>Select your location</h2>
+                <LocationSelector resturants={allResturant} setResturant={setAllResturant} setIsClicked={setIsClicked} />
             </section>
             <section>
                 <h2>Our story</h2>
@@ -35,9 +39,6 @@ const Homepage = ( { setResturant } ) => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur totam unde a esse placeat! Modi voluptatibus sint asperiores fugiat iste. Qui labore aperiam dolorum ullam id illo obcaecati asperiores. Debitis!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea veritatis neque nam, magni culpa magnam maiores obcaecati a? Ipsa esse porro facere? Quasi consectetur laborum dolorum esse quam. Ipsam, beatae?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis molestiae sit, aut asperiores dolorum id, dolor iste fugit deleniti dolorem repellendus ipsum rerum optio facere, hic suscipit? Distinctio, obcaecati dolor?</p>
-            </section>
-            <section>
-                <LocationSelector resturants={allResturant} setResturant={setAllResturant} setIsClicked={setIsClicked} />
             </section>
         </div>
     )

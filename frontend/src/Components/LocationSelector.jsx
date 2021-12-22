@@ -35,7 +35,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
         <div className='main-location'>            
             <div className='location-selector'>
                 <div>
-                    Select your city!
+                    <p>Select your city</p>
                     <select value={selectedCity} onChange={changeCity}>
                         <option value='Budapest'>Budapest</option>
                         <option value='Debrecen'>Debrecen</option>
@@ -47,7 +47,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
                 </div>
                 { selectedCity === 'Budapest' && 
                     <div>
-                        Select your district!
+                        <p>Select your district</p>
                         <select value={selectedDistrict} onChange={changeDistrict}>
                             <option value='1'>District 1</option>
                             <option value='2'>District 2</option>
