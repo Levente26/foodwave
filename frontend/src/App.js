@@ -9,9 +9,10 @@ import Cart from './Components/Cart';
 import Resturants from './Components/Resturants';
 import Purchase from './Components/Purchase';
 import Navbar from './Components/Navbar';
-
+import SelectedResturant from './Components/SelectedResturant';
 function App() {
   const [resturant, setResturant] = useState(null)
+  const [selectedResturant, setSelectedResturant] = useState(null)
 
   return (
      <BrowserRouter>
@@ -23,7 +24,8 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/resturants' element={<Resturants allresturant={resturant}/>} />
+          <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
+          <Route path='/selected-resturant' element={<SelectedResturant selected={selectedResturant} />} />
           <Route path='/purchase' element={<Purchase />} />
         </Routes>
       </main>  

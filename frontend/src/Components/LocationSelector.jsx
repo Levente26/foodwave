@@ -76,7 +76,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
                     </div>
                 }
             </div>
-            <button onClick={showLocatedResturants}>
+            <button onClick={showLocatedResturants} className='location-selector-btn'>
                 Show resturants at {selectedCity} {selectedCity === 'Budapest' ? 'District ' + selectedDistrict  : ""}
             </button>
         </div>

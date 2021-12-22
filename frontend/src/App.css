@@ -54,7 +54,6 @@ section{
 .main-location{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 10rem;
 }
 
@@ -62,6 +61,11 @@ section{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.location-selector-btn{
+    width: 300px;
+    text-align: center;
 }
 
 /* ------------------------------------------ RESTURANT CARD -------------------------------------- */

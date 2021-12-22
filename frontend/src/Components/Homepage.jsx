@@ -12,17 +12,13 @@ const Homepage = ( { setResturant } ) => {
     const showAllResturants = () => {
         setIsClicked(false)
         setResturant(allResturant)
-        setTimeout(() => {
-            navigate('/resturants')
-        },0)
+        navigate('/resturants')
     }
     if(isClicked){
         setResturant(allResturant)
-        setTimeout(() => {
-            navigate('/resturants')
-        },0)
+        navigate('/resturants')
     }
-    console.log(allResturant)
+
     return (
         <div className='home'>
             <section className="header">
