@@ -1,1 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
+/* ----------------------------------------- NAVBAR ------------------------------------------------------------ */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    background-color: grey;
+}
+/* -------------------------------------- LANDING PAGE -------------------------------------------------------- */
+.main-title{
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+section{
+    height: 70vh;
+    margin: 2rem;
+    padding: 1rem;
+    border-bottom: 5px solid black;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width:650px){
+    section{
+        height: 90vh;
+    }
+    .navbar{
+        font-size: 1.2rem;
+    }
+}
+/* ------------------------------------------- LOCATION SELECTOR --------------------------------------------- */
+
+.main-location{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10rem;
+    /* width: 100%; */
+}
+
+.location-selector{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* ------------------------------------------ RESTURANT CARD -------------------------------------- */
+
+.resturant-list{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resturant-card{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid red;
+}
+
+.resturant-card-image{
+    width: 50%;
+}
+
+.resturant-card-content{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resturant-name{
+    font-size: 1.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

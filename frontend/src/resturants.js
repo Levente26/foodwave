@@ -1,4 +1,5 @@
 // MCDONALDS 
+import Mlogo from './images/mcdonalds-logo.png'
 import Mcheeseburger from './images/mcdonalds-cheeseburger.png'
 import Mdoublecheeseburger from './images/mcdonalds-doublecheeseburger.png'
 import Mbigmac from './images/mcdonalds-bigmac.png'
@@ -19,6 +20,7 @@ import MshakeVanilla from './images/mcdonalds-vanilla-shake.png'
 import MshakeStrawberry from './images/mcdonalds-strawberry-shake.png' 
 
 // BURGER KING
+import Blogo from './images/bk-logo.jpg'
 import Bcheeseburger from './images/bk-cheeseburger.png'
 import Bdoublecheeseburger from './images/bk-doublecheeseburger.png'
 import Bchilicheeseburger from './images/bk-chilicheese.png'
@@ -42,6 +44,7 @@ import Bchocfreeze from './images/bk-chocfreeze.png'
 import Bstawberryfreeze from './images/bk-strawberryfreeze.png'
 
 // BELLOZZO
+import BelloLogo from './images/bello-logo.jpg'
 import BelloPomodoro from './images/bello-pomodoro.jpg'
 import BelloPastainbianco from './images/bello-pastainbianco.jpg'
 import BelloCarbonara from './images/bello-carbonara.jpg'
@@ -61,6 +64,7 @@ import BelloCesareSalad from './images/bello-cesaresalad.jpg'
 import BelloCalzone from './images/bello-calzone.jpg'
 
 // LAGUNA
+import LagunaLogo from './images/laguna-logo.jpg'
 import LagunaArden from './images/laguna-ardeni.jpg'
 import LagunaBorneo from './images/laguna-borneo.jpg'
 import LagunaRiceNMeat from './images/laguna-rizseshus.jpg'
@@ -76,11 +80,13 @@ import LagunaQuattro from './images/laguna-quattro.jpg'
 import LagunaGyros from './images/laguna-gyros.jpg'
 
 // DÖNER KEBAB
+import GyrosLogo from './images/gyros-logo.jpg'
 import GyrosPita from './images/gyros-pita.jpg'
 import GyrosPlate from './images/gyros-plate.jpg'
 import GyrosBaklava from './images/gyros-baklava.png'
 
 // WASABI
+import WasabiLogo from './images/wasabi-logo.jpg'
 import Nigiri1 from './images/wasabi-nigiri1.png'
 import Nigiri2 from './images/wasabi-nigiri2.png'
 import Maki1 from './images/wasabi-maki1.png'
@@ -88,6 +94,7 @@ import Maki2 from './images/wasabi-maki2.png'
 import Maki3 from './images/wasabi-maki2.png'
 
 // PIZZA HUT
+import PizzahutLogo from './images/pizzahut-logo.jpg'
 import Italiansausage from './images/pizzahut-italiansausage.jpg'
 import HamWithCorn from './images/pizzahut-hamwithcorn.jpg'
 import Chicken from './images/pizzahut-chicken.jpg'
@@ -97,6 +104,7 @@ import Hawaii from './images/pizzahut-hawaii.jpg'
 import Margarita from './images/pizzahut-margarita.jpg'
 
 // BAMBA MARHA
+import BambaLogo from './images/bamba-logo.jpg'
 import Bambamarha from './images/bamba-bambamarha.jpg'
 import Duplabacon from './images/bamba-duplabacon.jpg'
 import SloppyJoe from './images/bamba-sloppyjoe.jpg'
@@ -107,6 +115,7 @@ import Chickenburger from './images/bamba-chicken.jpg'
 import Cheeseburger from './images/bamba-cheese.jpg'
 
 // FRESHLAND
+import saladLogo from './images/salad-logo.jpg'
 import saladBlues from './images/salad-blues.jpg'
 import saladCaeser from './images/salad-caesar.jpg'
 import saladCalypso from './images/salad-calypso.jpg'
@@ -116,6 +125,7 @@ import saladPop from './images/salad-pop.jpg'
 export const resturants = [
     {
       name: 'McDonalds',
+      logo: Mlogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
         {cityname:'Debrecen', districts:[]},
@@ -153,6 +163,7 @@ export const resturants = [
     },    
     {
       name: 'Buger King',
+      logo: Blogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
         {cityname:'Debrecen', districts:[]},
@@ -191,6 +202,7 @@ export const resturants = [
     },
     {
       name: 'Bellozzo',
+      logo: BelloLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
         {cityname:'Pécs', districts:[]},
@@ -218,6 +230,7 @@ export const resturants = [
     },
     {
       name: 'Laguna',
+      logo: LagunaLogo,
       cities: [
         {cityname:'Budapest', districts: [18,19,20,21]},
       ],
@@ -240,6 +253,7 @@ export const resturants = [
     },
     {
       name: 'Döner Kebab',
+      logo: GyrosLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
         {cityname:'Debrecen', districts:[]},
@@ -256,7 +270,8 @@ export const resturants = [
       ]
     },
     {
-      name: 'Ramen Sushi',
+      name: 'Wasabi',
+      logo: WasabiLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,17,18,19,]},
         {cityname:'Debrecen', districts:[]},
@@ -273,6 +288,7 @@ export const resturants = [
     },
     {
       name: 'Pizza Hut',
+      logo: PizzahutLogo,
       cities: [
         {cityname:'Budapest', districts: [4,5,6,7,8,9,10,13,14,15,16,17,18,19,]},
         {cityname:'Pécs', districts:[]},
@@ -292,6 +308,7 @@ export const resturants = [
     },   
     {
       name: 'Bamba Marha',
+      logo: BambaLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,5,6,7,8,9,13,]}
       ],
@@ -309,6 +326,7 @@ export const resturants = [
     },    
     {
       name: 'Freshland',
+      logo: saladLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,5,6,7,8,9,10,13,14,15,18,19]},
         {cityname:'Nyíregyháza', districts:[]},
@@ -322,9 +340,4 @@ export const resturants = [
         {foodname:'Pop salad', price: 1890, image:saladPop, ingredients:['chicken','tomato','corn','egg','feta','salad'], allergens:['none'], type:'salad'},
       ]
     },
-
   ]
-
-  
-
-
