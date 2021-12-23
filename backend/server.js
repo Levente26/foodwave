@@ -12,18 +12,12 @@ const methodOverride = require('method-override')
 const cors = require('cors')
 const bodyParser = require("body-parser");
 const fs = require('fs')
-
 const initializePassport = require('./passport-config')
-initializePassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
-)
 
 app.use(cors())
 app.set('view-engine','ejs')
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended:false }))
+app.use(express.urlencoded( { extended:false } ))
 app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -36,18 +30,29 @@ app.use(methodOverride('_method'))
 
 // ---------------------------------------- LOGIN ---------------------------------------------------
 
+initializePassport(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+)
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local',{
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true,
-}))
+app.post('/login', (req, res, next) => {
+    const auth = passport.authenticate('local', (err, user, info) => {
+      if (err) return next(err)
+      if (!user) return res.status(401).json(info)
+      req.logIn(user, (error) => {
+        if (error) return next(error)
+        return res.json({msg: "Logged in successfully", ...user})
+      })
+    })
+    auth(req, res, next)
+  })
 
 //  ------------------------------------ REGISTRATION --------------------------------------*
 
 const users = require('./database/users.json')
 
-app.post('/register', checkNotAuthenticated, async (req,res) => {
+app.post('/register', async (req,res) => {
     const dataUsers = users
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -57,10 +62,10 @@ app.post('/register', checkNotAuthenticated, async (req,res) => {
             email: req.body.email,
             password: hashedPassword,
         })
-        res.send('success')
+        res.json({msg:'Successful registration'})
         fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
     } catch {
-        res.send('fail')
+        res.json({msg: 'Something went wrong please try again'})
     }
 })
 
@@ -70,18 +75,5 @@ app.delete('/logout', (req,res) => {
     req.logOut()
     res.send('logged out')
 })
-
-function checkAuthenticated(req,res,next) {
-    if(req.isAuthenticated()){
-        return next()
-    }
-    res.redirect('/login')
-}
-function checkNotAuthenticated(req,res,next) {
-    if(req.isAuthenticated()){
-        return res.redirect('/')
-    }
-    next()
-}
 
 app.listen(5000)
