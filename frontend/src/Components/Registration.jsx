@@ -22,19 +22,23 @@ const Registration = () => {
         setPasswordOnceMore(e.target.value)
     }
     const register = async () => {
-        const userData = {name: username, email: email, password: password}
-            try {
-                if(password === passwordOnceMore && username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
-                    let response = await axios.post('http://localhost:5000/register', userData)
-                    setMessage(response.data.msg)
-                    setErrorMessage('')
-                } else {
-                    setErrorMessage('Something went wrong please try again')
-                    setMessage('')
-                }
+        if(username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
+                const userData = {name: username, email: email, password: password}
+                try {
+                let response = await axios.post('http://localhost:5000/register', userData)
+                setMessage(response.data.msg)
+                setErrorMessage('')
+                console.log(response.data)
             } catch (err) {
-              console.log(err)
+                if(password === passwordOnceMore){
+                    setErrorMessage(err.response.data.msg)
+                    setMessage('')
+                } else{
+                    setErrorMessage('Wrong password')
+                }
+                console.log(err.response)
             }
+        } 
     }
 
     return (
@@ -49,9 +53,11 @@ const Registration = () => {
                 <label>Enter your password once more</label>
                 <input type='password' value={passwordOnceMore} onChange={changePasswordOnceMore} />
             </form>
-            <button onClick={register}>Registration</button>
-            {message !== '' && <p>{message}</p>}
-            {errorMessage !== '' && <p>{errorMessage}</p>}
+            <div className="box-7">
+                <div className='btn-7 btn-three' onClick={register}>Registration</div>
+            </div>
+            {message !== '' && <p className='msg'>{message}</p>}
+            {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
         </div>
     )
 }

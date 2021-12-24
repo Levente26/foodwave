@@ -37,7 +37,6 @@ const FoodCard = ({ product }) => {
                 <div className="box-6">
                     <div className='btn-6 btn-three' onClick={clickToggle}>{!toggle ? 'Show allergens' : 'Show ingredients'}</div>
                 </div>
-                {/* <button onClick={clickToggle}>{!toggle ? 'Show allergens' : 'Show ingredients'}</button> */}
             </div>
             <div className='food-price'>
                 <p>{product.price} HUF</p>
@@ -46,7 +45,6 @@ const FoodCard = ({ product }) => {
                         Add to cart
                     </div>
                 </div>
-                {/* <button onClick={() => addToCart(product.foodname, product.price)}>Add to cart</button> */}
             </div>
         </div>
     )

@@ -54,19 +54,54 @@ app.post('/login', (req, res, next) => {
 const users = require('./database/users.json')
 
 app.post('/register', async (req,res) => {
-    const dataUsers = users
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        dataUsers.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword,
-        })
-        res.json({msg:'Successful registration'})
-        fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
-    } catch {
-        res.json({msg: 'Something went wrong please try again'})
+    // const dataUsers = users
+    // try {
+    //     const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    //     dataUsers.push({
+    //         id: Date.now().toString(),
+    //         name: req.body.name,
+    //         email: req.body.email,
+    //         password: hashedPassword,
+    //     })
+    //     res.json({msg:'Successful registration'})
+    //     fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
+    // } catch {
+    //     res.json({msg: 'Something went wrong please try again'})
+    // }
+
+
+    console.log("REGISTER TRIGGERED")
+    const dataUsers = users;
+  
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const newUser = {
+        id: Date.now().toString(),
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+    };
+  
+    let existanceCheckName = false;
+    dataUsers.map(user => {
+      if (user.name === req.body.name) {
+        return (existanceCheckName = true);
+      }
+    });
+    let existanceCheckEmail = false;
+    dataUsers.map(user => {
+      if (user.email === req.body.email) {
+        return (existanceCheckEmail = true);
+      }
+    });
+  
+    if (existanceCheckName) {
+      res.status(400).json({msg: "Username alredy exists please choose another one"});
+    } else if(existanceCheckEmail){
+        res.status(400).json({msg: "Email address alredy exists please choose another one"});
+    } else {
+      dataUsers.push(newUser);
+      fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
+      res.status(201).json({msg: "Registration successfully completed.", name: newUser.name});
     }
 })
 

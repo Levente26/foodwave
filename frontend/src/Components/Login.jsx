@@ -46,7 +46,9 @@ const Login = () => {
                 <label>Enter your password</label>
                 <input type='password' id='password' name='password' required value={password} onChange={changePassword} />
             </form>
-            <button onClick={login}>Login</button>
+            <div className="box-7">
+                <div className='btn-7 btn-three' onClick={login}>Login</div>
+            </div>
             {message !== '' && <p>{message}</p>}
             {errorMessage !== '' && <p>{errorMessage}</p>}
         </div>
