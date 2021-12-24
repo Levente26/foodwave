@@ -29,7 +29,7 @@ const Login = ( { setIsLoggedIn, setName } ) => {
             console.log(sessionStorage.name)
             setTimeout(() =>{
                 navigate('/')
-            },1500)
+            },500)
         } 
         catch (err) {
             console.log(err.response)

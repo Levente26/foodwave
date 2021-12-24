@@ -97,6 +97,8 @@ app.post('/cart', async (req,res) => {
   const cartData = cart
   try {
     cartData.push({
+      name: req.body.name,
+      resturant: req.body.resturant,
       product: req.body.product,
       price: req.body.price
     })

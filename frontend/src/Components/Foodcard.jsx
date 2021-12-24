@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const FoodCard = ({ product, isLoggedIn }) => {
+const FoodCard = ({ product, isLoggedIn, name, resturant, setCartItemsNum, cartItemsNum }) => {
     const [toggle, setToggle] = useState(false)
     const navigate = useNavigate()
 
@@ -10,9 +10,10 @@ const FoodCard = ({ product, isLoggedIn }) => {
         setToggle(!toggle)
     }
     const addToCart = async (foodname, price) => {
-        const cartData = {product: foodname, price: price}
+        const cartData = {name: name, resturant: resturant, product: foodname, price: price}
         const response = await axios.post('http://localhost:5000/cart', cartData)
         console.log(response)
+        setCartItemsNum(cartItemsNum + 1)
     }
     const navigateToLogin = () => {
         navigate('/login')

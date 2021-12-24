@@ -18,6 +18,11 @@
     top: 0;
     z-index: 250; 
 }
+
+.name{
+    color: white;
+}
+
 .link {
     position: relative;
     font-size: 1.6rem;

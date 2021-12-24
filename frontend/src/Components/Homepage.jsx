@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 
-const Homepage = ( { setResturant } ) => {
+const Homepage = ( { setResturant, isLoggedIn } ) => {
     const navigate = useNavigate()
     const [allResturant, setAllResturant] = useState(resturants)
     const [isClicked, setIsClicked] = useState(false)
@@ -39,9 +39,11 @@ const Homepage = ( { setResturant } ) => {
                 </div>
             </section>
             <section className='selector-section'>
-                <div className="box">
-                    <div className='btn btn-three' onClick={showAllResturants}>Show all resturants</div>
-                </div>
+                { !isLoggedIn &&
+                    <div className="box">
+                        <div className='btn btn-three' onClick={showAllResturants}>Show all resturants</div>
+                    </div>
+                }
                 <div className="content-2">
                     <h1>Select your location</h1>
                     <h1>Select your location</h1>

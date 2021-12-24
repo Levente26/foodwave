@@ -16,19 +16,27 @@ const App = () => {
   const [selectedResturant, setSelectedResturant] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [name, setName] = useState('')
+  const [cartItemsNum, setCartItemsNum] = useState(0)
+  console.log(cartItemsNum)
 
   return (
     <BrowserRouter>
-      <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setName={setName} name={name} />
+      <Navbar 
+        setIsLoggedIn={setIsLoggedIn} 
+        isLoggedIn={isLoggedIn} 
+        setName={setName} 
+        name={name}
+        cartItemsNum={cartItemsNum} 
+      />
       <main>
         <Routes>
-          <Route path='/' element={<Homepage setResturant={setResturant} />} />
+          <Route path='/' element={<Homepage isLoggedIn={isLoggedIn} setResturant={setResturant} />} />
           <Route path='/register' element={<Registration />} />
           <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
-          <Route path='/selected-resturant' element={<SelectedResturant isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
+          <Route path='/selected-resturant' element={<SelectedResturant cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} name={name} isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
           <Route path='/purchase' element={<Purchase />} />
         </Routes>
       </main>  
