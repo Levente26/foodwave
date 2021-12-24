@@ -1,5 +1,5 @@
 if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config()
+  require('dotenv').config()
 }
 
 const express = require('express')
@@ -49,7 +49,7 @@ app.post('/login', (req, res, next) => {
   auth(req, res, next)
 })
 
-//  ------------------------------------ REGISTRATION --------------------------------------*
+//  ------------------------------------ REGISTRATION --------------------------------------------*
 
 const users = require('./database/users.json')
 
@@ -81,7 +81,7 @@ app.post('/register', async (req,res) => {
   if (existanceCheckName) {
     res.status(400).json({msg: "Username alredy exists please choose another one"});
   } else if(existanceCheckEmail){
-      res.status(400).json({msg: "Email address alredy exists please choose another one"});
+    res.status(400).json({msg: "Email address alredy exists please choose another one"});
   } else {
     dataUsers.push(newUser);
     fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
@@ -97,15 +97,15 @@ app.post('/cart', async (req,res) => {
   const cartData = cart
   try {
     cartData.push({
-        product: req.body.product,
-        price: req.body.price
+      product: req.body.product,
+      price: req.body.price
     })
     fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
     res.send('ok')
   } catch{ } 
 })
 
-// ---------------------------------------- LOGOUT -------------------------------- 
+// ------------------------------------- LOGOUT ----------------------------------------------- 
 
 app.delete('/logout', (req,res) => {
   req.logOut()
