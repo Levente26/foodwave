@@ -16,11 +16,18 @@ const SelectedResturant = ( { selected } ) => {
     
     return (
         <div className="selected">
-            <h1 className="selected-name">{selected.name}</h1>
+            <div className="content-4">
+                <h1>{selected.name}</h1>
+                <h1>{selected.name}</h1>
+            </div>
             <div className="selected-types">
-                <button onClick={showAllProduct}>All product</button>
+            <div className="box-4">
+                <div className='btn-4 btn-three' onClick={showAllProduct}>All product</div>
+            </div>
                 {selected.types.map(type=> (
-                    <button onClick={() => filterProducts(type)}>{type}</button>
+                    <div className="box-4">
+                        <div className='btn-4 btn-three' onClick={() => filterProducts(type)}>{type}</div>
+                    </div>
                 ))}
             </div>
             <div className="selected-products">

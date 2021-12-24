@@ -21,7 +21,11 @@ const Resturants = ( { allresturant,  setSelectedResturant} ) => {
                             <h1>{resturant.name}</h1>
                             <h1>{resturant.name}</h1>
                         </div>
-                        <button onClick={() => clickProducts(resturant)}>Show products</button>
+                        <div className="box-3">
+                            <div className='btn-3 btn-three' onClick={() => clickProducts(resturant)}>
+                                Show products
+                            </div>
+                        </div>
                     </div>
                 </div>
             ))}

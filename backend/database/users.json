@@ -40,5 +40,17 @@
     "name": "o",
     "email": "o@o",
     "password": "$2b$10$xAnverV3FRilCT3pYcM3S.fM4J051vCFJ./jZoGfpENIGKoKP3Na."
+  },
+  {
+    "id": "1640353828437",
+    "name": "s",
+    "email": "s@s",
+    "password": "$2b$10$uqlBt.2l1XO7Sr0TJOvStekY.gLLGbnxzSjB2wFxR7Eb2fUhAPDzS"
+  },
+  {
+    "id": "1640374368256",
+    "name": "i",
+    "email": "i@i",
+    "password": "$2b$10$CgsEtlRioVAR6xo9wn3zse7.V0Ft3rlQSCtNq1uD30TMIJY2JKvBm"
   }
 ]

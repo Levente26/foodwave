@@ -14,5 +14,33 @@
   {
     "product": "Carnissima",
     "price": 2050
+  },
+  {
+    "product": "Noberuti 12 piece",
+    "price": 2990
+  },
+  {
+    "product": "Koshi 12 piece",
+    "price": 3650
+  },
+  {
+    "product": "Pasta in Bianco",
+    "price": 1050
+  },
+  {
+    "product": "Sloppy Joe burger",
+    "price": 1990
+  },
+  {
+    "product": "Bacon King",
+    "price": 850
+  },
+  {
+    "product": "Italian Sausage",
+    "price": 1650
+  },
+  {
+    "product": "Chili Cheese Bacon King",
+    "price": 950
   }
 ]

@@ -10,7 +10,8 @@ import Resturants from './Components/Resturants';
 import Purchase from './Components/Purchase';
 import Navbar from './Components/Navbar';
 import SelectedResturant from './Components/SelectedResturant';
-function App() {
+
+const App = () => {
   const [resturant, setResturant] = useState(null)
   const [selectedResturant, setSelectedResturant] = useState(null)
 
