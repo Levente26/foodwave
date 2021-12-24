@@ -59,10 +59,10 @@ app.post('/register', async (req,res) => {
 
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
   const newUser = {
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword,
+    id: Date.now().toString(),
+    name: req.body.name,
+    email: req.body.email,
+    password: hashedPassword,
   };
 
   let existanceCheckName = false;
@@ -96,12 +96,12 @@ const cart = require('./database/cart.json')
 app.post('/cart', async (req,res) => {
   const cartData = cart
   try {
-      cartData.push({
-          product: req.body.product,
-          price: req.body.price
-      })
-      fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
-      res.send('ok')
+    cartData.push({
+        product: req.body.product,
+        price: req.body.price
+    })
+    fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
+    res.send('ok')
   } catch{ } 
 })
 
