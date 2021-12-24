@@ -21,9 +21,9 @@ app.use(bodyParser.json());
 app.use(express.urlencoded( { extended:false } ))
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
 }))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -32,61 +32,61 @@ app.use(methodOverride('_method'))
 // ---------------------------------------- LOGIN ---------------------------------------------------
 
 initializePassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
 )
 
 app.post('/login', (req, res, next) => {
-    const auth = passport.authenticate('local', (err, user, info) => {
-      if (err) return next(err)
-      if (!user) return res.status(401).json(info)
-      req.logIn(user, (error) => {
-        if (error) return next(error)
-        return res.json({msg: "Logged in successfully", ...user})
-      })
+  const auth = passport.authenticate('local', (err, user, info) => {
+    if (err) return next(err)
+    if (!user) return res.status(401).json(info)
+    req.logIn(user, (error) => {
+      if (error) return next(error)
+      return res.json({msg: "Logged in successfully", ...user})
     })
-    auth(req, res, next)
   })
+  auth(req, res, next)
+})
 
 //  ------------------------------------ REGISTRATION --------------------------------------*
 
 const users = require('./database/users.json')
 
 app.post('/register', async (req,res) => {
-    console.log("REGISTER TRIGGERED")
-    const dataUsers = users;
-  
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const newUser = {
-        id: Date.now().toString(),
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword,
-    };
-  
-    let existanceCheckName = false;
-    dataUsers.map(user => {
-      if (user.name === req.body.name) {
-        return (existanceCheckName = true);
-      }
-    });
-    let existanceCheckEmail = false;
-    dataUsers.map(user => {
-      if (user.email === req.body.email) {
-        return (existanceCheckEmail = true);
-      }
-    });
-  
-    if (existanceCheckName) {
-      res.status(400).json({msg: "Username alredy exists please choose another one"});
-    } else if(existanceCheckEmail){
-        res.status(400).json({msg: "Email address alredy exists please choose another one"});
-    } else {
-      dataUsers.push(newUser);
-      fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
-      res.status(201).json({msg: "Registration successfully completed.", name: newUser.name});
+  console.log("REGISTER TRIGGERED")
+  const dataUsers = users;
+
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  const newUser = {
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+  };
+
+  let existanceCheckName = false;
+  dataUsers.map(user => {
+    if (user.name === req.body.name) {
+      return (existanceCheckName = true);
     }
+  });
+  let existanceCheckEmail = false;
+  dataUsers.map(user => {
+    if (user.email === req.body.email) {
+      return (existanceCheckEmail = true);
+    }
+  });
+
+  if (existanceCheckName) {
+    res.status(400).json({msg: "Username alredy exists please choose another one"});
+  } else if(existanceCheckEmail){
+      res.status(400).json({msg: "Email address alredy exists please choose another one"});
+  } else {
+    dataUsers.push(newUser);
+    fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
+    res.status(201).json({msg: "Registration successfully completed.", name: newUser.name});
+  }
 })
 
 // -------------------------------------- CART --------------------------------------------
@@ -94,25 +94,22 @@ app.post('/register', async (req,res) => {
 const cart = require('./database/cart.json')
 
 app.post('/cart', async (req,res) => {
-    const cartData = cart
-    try {
-        cartData.push({
-            product: req.body.product,
-            price: req.body.price
-        })
-        fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
-        res.send('ok')
-    } catch {
-        
-    }
-    
+  const cartData = cart
+  try {
+      cartData.push({
+          product: req.body.product,
+          price: req.body.price
+      })
+      fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
+      res.send('ok')
+  } catch{ } 
 })
 
 // ---------------------------------------- LOGOUT -------------------------------- 
 
 app.delete('/logout', (req,res) => {
-    req.logOut()
-    res.send('logged out')
+  req.logOut()
+  res.send('logged out')
 })
 
 app.listen(5000)

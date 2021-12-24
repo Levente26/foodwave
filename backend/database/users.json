@@ -28,5 +28,11 @@
     "name": "jakab",
     "email": "j@j",
     "password": "$2b$10$0/SGAwp3.uMXHGb.HStlDekwazPwwT12P0ySJV79zPzApmX/95u0e"
+  },
+  {
+    "id": "1640384588825",
+    "name": "herold",
+    "email": "h@h",
+    "password": "$2b$10$NVW.jFR2f.jX0yRH.bu.Dudczvl3EYOZAZFPWWseDEqvN2p1r6Asm"
   }
 ]
