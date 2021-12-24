@@ -45,17 +45,19 @@ const FoodCard = ({ product, isLoggedIn }) => {
             </div>
             <div className='food-price'>
                 <p>{product.price} HUF</p>
-                { isLoggedIn && <div className="box-5">
-                    <div className='btn-5 btn-three' onClick={() => addToCart(product.foodname, product.price)}>
-                        Add to cart
+                { isLoggedIn && 
+                    <div className="box-5">
+                        <div className='btn-5 btn-three' onClick={() => addToCart(product.foodname, product.price)}>
+                            Add to cart
+                        </div>
                     </div>
-                </div>
                 }
-                { !isLoggedIn && <div className="box-5">
-                    <div className='btn-5 btn-three' onClick={navigateToLogin}>
-                        Login first
+                { !isLoggedIn && 
+                    <div className="box-5">
+                        <div className='btn-5 btn-three' onClick={navigateToLogin}>
+                            Login first
+                        </div>
                     </div>
-                </div>
                 }
             </div>
         </div>

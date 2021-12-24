@@ -25,8 +25,8 @@ const Registration = () => {
     }
     const register = async () => {
         if(username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
-                const userData = {name: username, email: email, password: password}
-                try {
+            const userData = {name: username, email: email, password: password}
+            try {
                 let response = await axios.post('http://localhost:5000/register', userData)
                 setMessage(response.data.msg)
                 setErrorMessage('')
@@ -41,7 +41,7 @@ const Registration = () => {
                 } else{
                     setErrorMessage('Wrong password')
                 }
-                console.log(err.response)
+            console.log(err.response)
             }
         } 
     }

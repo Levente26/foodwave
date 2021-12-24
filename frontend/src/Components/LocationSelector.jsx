@@ -35,7 +35,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
         <div className='main-location'>            
             <div className='location-selector'>
                 <div>
-                    <label>Select your city      </label>
+                    <label>Select your city</label>
                     <select value={selectedCity} onChange={changeCity}>
                         <option value='Budapest'>Budapest</option>
                         <option value='Debrecen'>Debrecen</option>
@@ -47,7 +47,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
                 </div>
                 { selectedCity === 'Budapest' && 
                     <div>
-                        <label>Select your district       </label>
+                        <label>Select your district</label>
                         <select value={selectedDistrict} onChange={changeDistrict}>
                             <option value='1'>District 1</option>
                             <option value='2'>District 2</option>
@@ -77,11 +77,11 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
                 }
             </div>
             <div className='location-selector'>
-            <div className="box-2">
-                <div className='btn-2 btn-three' onClick={showLocatedResturants}>
-                    Show resturants at {selectedCity} {selectedCity === 'Budapest' ? 'Dist. ' + selectedDistrict  : ""}
+                <div className="box-2">
+                    <div className='btn-2 btn-three' onClick={showLocatedResturants}>
+                        Show resturants at {selectedCity} {selectedCity === 'Budapest' ? 'Dist. ' + selectedDistrict  : ""}
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     )

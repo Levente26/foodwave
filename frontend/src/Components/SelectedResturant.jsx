@@ -21,9 +21,9 @@ const SelectedResturant = ( { selected, isLoggedIn } ) => {
                 <h1>{selected.name}</h1>
             </div>
             <div className="selected-types">
-            <div className="box-4">
-                <div className='btn-4 btn-three' onClick={showAllProduct}>All product</div>
-            </div>
+                <div className="box-4">
+                    <div className='btn-4 btn-three' onClick={showAllProduct}>All product</div>
+                </div>
                 {selected.types.map(type=> (
                     <div className="box-4">
                         <div className='btn-4 btn-three' onClick={() => filterProducts(type)}>{type}</div>

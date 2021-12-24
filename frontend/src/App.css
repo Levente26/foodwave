@@ -364,6 +364,10 @@ form{
     gap: 1rem;
 }
 
+label{
+    margin-right: 1rem;
+}
+
 input{
     font-size: 1rem;
     text-align: center;

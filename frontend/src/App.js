@@ -18,7 +18,7 @@ const App = () => {
   const [name, setName] = useState('')
 
   return (
-     <BrowserRouter>
+    <BrowserRouter>
       <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setName={setName} name={name} />
       <main>
         <Routes>
@@ -32,7 +32,7 @@ const App = () => {
           <Route path='/purchase' element={<Purchase />} />
         </Routes>
       </main>  
-     </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
