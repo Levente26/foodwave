@@ -14,6 +14,7 @@ const bodyParser = require("body-parser");
 const fs = require('fs')
 const initializePassport = require('./passport-config')
 
+
 app.use(cors())
 app.set('view-engine','ejs')
 app.use(bodyParser.json());
@@ -67,6 +68,25 @@ app.post('/register', async (req,res) => {
     } catch {
         res.json({msg: 'Something went wrong please try again'})
     }
+})
+
+// -------------------------------------- CART --------------------------------------------
+
+const cart = require('./database/cart.json')
+
+app.post('/cart', async (req,res) => {
+    const cartData = cart
+    try {
+        cartData.push({
+            product: req.body.product,
+            price: req.body.price
+        })
+        fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
+        res.send('ok')
+    } catch {
+        
+    }
+    
 })
 
 // ---------------------------------------- LOGOUT -------------------------------- 

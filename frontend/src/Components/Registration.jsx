@@ -6,6 +6,8 @@ const Registration = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordOnceMore, setPasswordOnceMore] = useState('')
+    const [message, setMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
@@ -22,11 +24,16 @@ const Registration = () => {
     const register = async () => {
         const userData = {name: username, email: email, password: password}
             try {
-              let response = await axios.post('http://localhost:5000/register', userData)
-              console.log(response)
-              console.log(userData)
+                if(password === passwordOnceMore && username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
+                    let response = await axios.post('http://localhost:5000/register', userData)
+                    setMessage(response.data.msg)
+                    setErrorMessage('')
+                } else {
+                    setErrorMessage('Something went wrong please try again')
+                    setMessage('')
+                }
             } catch (err) {
-              console.log(err.response)
+              console.log(err)
             }
     }
 
@@ -39,10 +46,12 @@ const Registration = () => {
                 <input type='text' id='username' name='username' required  value={username} onChange={changeUsername} />
                 <label>Enter your password</label>
                 <input type='password' id='password' name='password' required  value={password} onChange={changePassword} />
-                {/* <label>Enter your password once more</label>
-                <input type='password' value={passwordOnceMore} onChange={changePasswordOnceMore} /> */}
+                <label>Enter your password once more</label>
+                <input type='password' value={passwordOnceMore} onChange={changePasswordOnceMore} />
             </form>
             <button onClick={register}>Registration</button>
+            {message !== '' && <p>{message}</p>}
+            {errorMessage !== '' && <p>{errorMessage}</p>}
         </div>
     )
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "product": "Chili Cheeseburger",
+    "price": 350
+  },
+  {
+    "product": "Xtra Long Big King",
+    "price": 850
+  },
+  {
+    "product": "Gorgonzola",
+    "price": 1250
+  },
+  {
+    "product": "Carnissima",
+    "price": 2050
+  }
+]

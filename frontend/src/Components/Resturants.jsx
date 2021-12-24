@@ -14,10 +14,13 @@ const Resturants = ( { allresturant,  setSelectedResturant} ) => {
             {allresturant.map(resturant => (
                 <div className="resturant-card" key={resturant.name}>
                     <div className="resturant-card-image">
-                        <img src={resturant.logo} alt='' width={250} height={200} />
+                        <img className='resturant-logo' src={resturant.logo} alt='' />
                     </div>
                     <div className="resturant-card-content">
-                        <h3 className="resturant-name">{resturant.name}</h3>
+                        <div className="content-3">
+                            <h1>{resturant.name}</h1>
+                            <h1>{resturant.name}</h1>
+                        </div>
                         <button onClick={() => clickProducts(resturant)}>Show products</button>
                     </div>
                 </div>

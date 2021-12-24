@@ -134,7 +134,7 @@ export const resturants = [
         {cityname:'Szeged', districts:[]},
         {cityname:'Békéscsaba', districts:[]},
       ],
-      types:['burger','nuggets','french fries','ice','shake'],
+      types:['burger','nuggets','french fries','ice cream','shake'],
       products: [
         {foodname:'Cheeseburger', price: 350, image: Mcheeseburger, ingredients:['beef','onion','pickle','mustard','ketchup', 'cheese'], allergens:['gluten','milk','mustard'], type:'burger'},
         {foodname:'BigMac', price: 650, image: Mbigmac, ingredients:['beef','onion','pickle','bigmac sauce', 'salad', 'cheese'], allergens:['gluten','milk','mustard'], type:'burger'},
@@ -153,16 +153,16 @@ export const resturants = [
         {foodname:'Small french fries', price: 450, image:Mpotato, ingredients:['potato'], allergens:['none'], type:'french fries'},
         {foodname:'Medium french fries', price: 550, image:Mpotato, ingredients:['potato'], allergens:['none'], type:'french fries'},
         {foodname:'Large french fries', price: 650, image:Mpotato, ingredients:['potato'], allergens:['none'], type:'french fries'},
-        {foodname:'Chocolate McFreeze', price: 450, image:MmcfreezeChoco, ingredients:['milk', 'chocolate'], allergens:['milk'], type:'ice'},
-        {foodname:'Caramel McFreeze', price: 450, image:MmcfreezeCaramel, ingredients:['milk', 'caramel'], allergens:['milk'], type:'ice'},
-        {foodname:'Strawberry McFreeze', price: 450, image:MmcfreezeStrawberry, ingredients:['milk', 'strawberry'], allergens:['milk'], type:'ice'},
+        {foodname:'Chocolate McFreeze', price: 450, image:MmcfreezeChoco, ingredients:['milk', 'chocolate'], allergens:['milk'], type:'ice cream'},
+        {foodname:'Caramel McFreeze', price: 450, image:MmcfreezeCaramel, ingredients:['milk', 'caramel'], allergens:['milk'], type:'ice cream'},
+        {foodname:'Strawberry McFreeze', price: 450, image:MmcfreezeStrawberry, ingredients:['milk', 'strawberry'], allergens:['milk'], type:'ice cream'},
         {foodname:'Chocolate Shake', price: 550, image:MshakeChoco, ingredients:['milk', 'chocolate'], allergens:['milk'], type:'shake'},
         {foodname:'Vanilla Shake', price: 550, image:MshakeVanilla, ingredients:['milk', 'vanilla'], allergens:['milk'], type:'shake'},
         {foodname:'Strawberry Shake', price: 550, image:MshakeStrawberry, ingredients:['milk', 'strawberry'], allergens:['milk'], type:'shake'},
       ]
     },    
     {
-      name: 'Buger King',
+      name: 'BugerKing',
       logo: Blogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
@@ -170,7 +170,7 @@ export const resturants = [
         {cityname:'Nyíregyháza', districts:[]},
         {cityname:'Pécs', districts:[]},
       ],
-      types:['burger','long burger','nuggets','french fries','shake','ice'],
+      types:['burger','long burger','nuggets','french fries','shake','ice cream'],
       products: [
         {foodname:'Chili Cheese Bacon King', price: 950, image:Bchilicheesebaconking, ingredients:['beef','bacon','cheese','chili cheese sauce','jalapeno'], allergens:['gluten','milk',], type:'burger'},
         {foodname:'Chili Cheeseburger', price: 350, image:Bchilicheeseburger, ingredients:['beef','cheese','chili cheese sauce','jalapeno'], allergens:['gluten','milk',], type:'burger'},
@@ -192,9 +192,9 @@ export const resturants = [
         {foodname:'Medium french fries', price: 550, image:Bpotato, ingredients:['potato'], allergens:['none'], type:'french fries'},
         {foodname:'XXL french fries', price: 750, image:Bpotato, ingredients:['potato'], allergens:['none'], type:'french fries'},
         {foodname:'Onion ring', price: 650, image:Bonionring, ingredients:['onion'], allergens:['gluten'], type:'french fries'},
-        {foodname:'Chocolate Freeze', price: 450, image:Bchocfreeze, ingredients:['milk', 'chocolate'], allergens:['milk'], type:'ice'},
-        {foodname:'Mango Freeze', price: 450, image:Bmangofreeze, ingredients:['milk', 'caramel'], allergens:['milk'], type:'ice'},
-        {foodname:'Strawberry Freeze', price: 450, image:Bstawberryfreeze, ingredients:['milk', 'strawberry'], allergens:['milk'], type:'ice'},
+        {foodname:'Chocolate Freeze', price: 450, image:Bchocfreeze, ingredients:['milk', 'chocolate'], allergens:['milk'], type:'ice cream'},
+        {foodname:'Mango Freeze', price: 450, image:Bmangofreeze, ingredients:['milk', 'caramel'], allergens:['milk'], type:'ice cream'},
+        {foodname:'Strawberry Freeze', price: 450, image:Bstawberryfreeze, ingredients:['milk', 'strawberry'], allergens:['milk'], type:'ice cream'},
         {foodname:'Raspberry Shake', price: 550, image:Braspberryshake, ingredients:['milk'], allergens:['milk'], type:'shake'},
         {foodname: 'Salted Caramel Shake', price: 550, image:Bsaltcaramelshake, ingredients:['milk'], allergens:['milk'], type:'shake'},
         {foodname:'Mango Shake', price: 550, image:Bmangoshake, ingredients:['milk'], allergens:['milk'], type:'shake'},
@@ -246,13 +246,13 @@ export const resturants = [
         {foodname:'Rice and Meat', price: 1100, image:LagunaRiceNMeat, ingredients:['rice','beef'], allergens:['unknown'], type:'beef'},
         {foodname:'Pork ribs Milanese', price: 1850, image:LagunaMilano, ingredients:['pork','pasta','tomato sauce'], allergens:['gluten'], type:'pork'},
         {foodname:'Pork ribs Bakonyese', price: 1640, image:LagunaBakony, ingredients:['pork','noodles','sauce'], allergens:['gluten','milk'], type:'pork'},
-        {foodname:'Ardeni ham and mozzarella stuffed chicken', price: 1720, image:LagunaArden, ingredients:['pasta','ham','mozzarella','chicken'], allergens:['gluten','milk'], type:'chicken'},
+        {foodname:'Ham and mozzarella stuffed chicken', price: 1720, image:LagunaArden, ingredients:['pasta','ham','mozzarella','chicken'], allergens:['gluten','milk'], type:'chicken'},
         {foodname:'Borneo Chicken', price: 1680, image:LagunaBorneo, ingredients:['chicken','heavy cream'], allergens:['gluten','milk'], type:'chicken'},
         {foodname:'Paris Chicken', price: 1440, image:LagunaParis, ingredients:['chicken','rice'], allergens:['gluten','milk'], type:'chicken'},
       ]
     },
     {
-      name: 'Döner Kebab',
+      name: 'DönerKebab',
       logo: GyrosLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]},
@@ -287,7 +287,7 @@ export const resturants = [
       ]
     },
     {
-      name: 'Pizza Hut',
+      name: 'PizzaHut',
       logo: PizzahutLogo,
       cities: [
         {cityname:'Budapest', districts: [4,5,6,7,8,9,10,13,14,15,16,17,18,19,]},
@@ -297,7 +297,7 @@ export const resturants = [
       ],
       types:['pizza'],
       products: [
-        {foodname:'Italian sausage', price: 1650, image:Italiansausage, ingredients:['italian sausage','tomato sauce', 'mozzarella'], allergens:['gluten','milk'], type:'pizza'},
+        {foodname:'Italian Sausage', price: 1650, image:Italiansausage, ingredients:['italian sausage','tomato sauce', 'mozzarella'], allergens:['gluten','milk'], type:'pizza'},
         {foodname:'Ham with Corn', price: 1780, image:HamWithCorn, ingredients:['ham','corn','tomato sauce', 'mozzarella'], allergens:['gluten','milk'], type:'pizza'},
         {foodname:'Chicken', price: 1695, image:Chicken, ingredients:['tomato sauce', 'mozzarella','chicken'], allergens:['gluten','milk'], type:'pizza'},
         {foodname:'Funghi', price: 1650, image:Funghi, ingredients:['funghi','tomato sauce', 'mozzarella'], allergens:['gluten','milk'], type:'pizza'},
@@ -307,7 +307,7 @@ export const resturants = [
     ]
     },   
     {
-      name: 'Bamba Marha',
+      name: 'BambaMarha',
       logo: BambaLogo,
       cities: [
         {cityname:'Budapest', districts: [1,2,5,6,7,8,9,13,]}

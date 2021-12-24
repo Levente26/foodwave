@@ -22,12 +22,31 @@ const Homepage = ( { setResturant } ) => {
     return (
         <div className='home'>
             <section className="header">
-                <h1 className="main-title">Food wave</h1>
-                <button onClick={showAllResturants}>Show all resturants</button>
+            <div className="waveWrapper waveAnimation">
+                <div className="waveWrapperInner bgTop">
+                    <div className="wave waveTop" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-top.png')"}}></div>
+                </div>
+                <div className="waveWrapperInner bgMiddle">
+                    <div className="wave waveMiddle" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-mid.png')"}}></div>
+                </div>
+                <div className="waveWrapperInner bgBottom">
+                    <div className="wave waveBottom" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')"}}></div>
+                </div>
+            </div>
+                <div className="content">
+                    <h1>FoodWave</h1>
+                    <h1>FoodWave</h1>
+                </div>
             </section>
-            <section>
-                <h2 className='subtitle'>Select your location</h2>
-                <LocationSelector resturants={allResturant} setResturant={setAllResturant} setIsClicked={setIsClicked} />
+            <section className='selector-section'>
+                <button className='allresturant-btn' onClick={showAllResturants}>Show all resturants</button>
+                <div className="content-2">
+                    <h1>Select your location</h1>
+                    <h1>Select your location</h1>
+                </div>
+                <div className='location'>
+                    <LocationSelector resturants={allResturant} setResturant={setAllResturant} setIsClicked={setIsClicked} />
+                </div>
             </section>
             <section>
                 <h2>Our story</h2>
