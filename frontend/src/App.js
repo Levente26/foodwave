@@ -14,19 +14,21 @@ import SelectedResturant from './Components/SelectedResturant';
 const App = () => {
   const [resturant, setResturant] = useState(null)
   const [selectedResturant, setSelectedResturant] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [name, setName] = useState('')
 
   return (
      <BrowserRouter>
-      <Navbar />
+      <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setName={setName} name={name} />
       <main>
         <Routes>
           <Route path='/' element={<Homepage setResturant={setResturant} />} />
           <Route path='/register' element={<Registration />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
-          <Route path='/selected-resturant' element={<SelectedResturant selected={selectedResturant} />} />
+          <Route path='/selected-resturant' element={<SelectedResturant isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
           <Route path='/purchase' element={<Purchase />} />
         </Routes>
       </main>  

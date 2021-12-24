@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ( { setIsLoggedIn, setName } ) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const navigate = useNavigate()
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
@@ -15,27 +17,25 @@ const Login = () => {
     }
     const login = async () => {
         const loginCredentials = { email: email, password:password}
-
-      try {
-          let response = await axios.post('http://localhost:5000/login', loginCredentials)
-          console.log(response.status)
-          if(response.status === 200){
+        try {
+            let response = await axios.post('http://localhost:5000/login', loginCredentials)
             setMessage(response.data.msg)
             setErrorMessage('')
-        } else{
-            setErrorMessage('Wrong email or password')
+            console.log(response.data)
+            setIsLoggedIn(true)
+            setName(response.data.name)
+            sessionStorage.setItem('name', response.data.name)
+            sessionStorage.setItem('userid', response.data.id)
+            console.log(sessionStorage.name)
+            setTimeout(() =>{
+                navigate('/')
+            },2000)
+        } 
+        catch (err) {
+            console.log(err.response)
+            setErrorMessage(err.response.data.msg)
             setMessage('')
         }
-        // console.log(response.data)
-        // sessionStorage.setItem('username', response.data.username)
-        // setLoggedUser(response.data.username)
-        // sessionStorage.setItem('userid', response.data.id)
-        // setLoggedUserId(response.data.id)
-        // console.log(sessionStorage.username)
-
-      } catch (e) {
-        console.log(e.response)
-      }
     }
 
     return (
@@ -49,8 +49,8 @@ const Login = () => {
             <div className="box-7">
                 <div className='btn-7 btn-three' onClick={login}>Login</div>
             </div>
-            {message !== '' && <p>{message}</p>}
-            {errorMessage !== '' && <p>{errorMessage}</p>}
+            {message !== '' && <p className='msg'>{message}</p>}
+            {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
         </div>
     )
 }

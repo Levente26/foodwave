@@ -54,22 +54,6 @@ app.post('/login', (req, res, next) => {
 const users = require('./database/users.json')
 
 app.post('/register', async (req,res) => {
-    // const dataUsers = users
-    // try {
-    //     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    //     dataUsers.push({
-    //         id: Date.now().toString(),
-    //         name: req.body.name,
-    //         email: req.body.email,
-    //         password: hashedPassword,
-    //     })
-    //     res.json({msg:'Successful registration'})
-    //     fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
-    // } catch {
-    //     res.json({msg: 'Something went wrong please try again'})
-    // }
-
-
     console.log("REGISTER TRIGGERED")
     const dataUsers = users;
   

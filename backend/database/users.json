@@ -10,5 +10,23 @@
     "name": "ror",
     "email": "r@opr",
     "password": "$2b$10$1XRzBQAajK4qj/dhlz8aIuAoV9vwENgwtHN1RkUR9y08LRvYc/8Ou"
+  },
+  {
+    "id": "1640381093242",
+    "name": "levi",
+    "email": "l@l",
+    "password": "$2b$10$ejGZ6KfAyQZ5X2zTqP/Ep.n/FiM9HANVUcqF3nBsuCMjxBuweZ8mm"
+  },
+  {
+    "id": "1640381835513",
+    "name": "k",
+    "email": "k@k",
+    "password": "$2b$10$yRyzNyDXtvz4VNd..jAipunNW5X5/xX6Cn0Li56qYZZye4mto.Sdu"
+  },
+  {
+    "id": "1640382634982",
+    "name": "jakab",
+    "email": "j@j",
+    "password": "$2b$10$0/SGAwp3.uMXHGb.HStlDekwazPwwT12P0ySJV79zPzApmX/95u0e"
   }
 ]

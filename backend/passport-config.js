@@ -7,14 +7,14 @@ const initialize = (passport, getUserByEmail,getUserById) => {
         console.log(password)
         const user = getUserByEmail(email)
         if(user==null){
-            return done(null,false,{message:'no user with that email'})
+            return done(null,false,{msg:'Incorrect email or password'})
         }
 
         try {
             if(await bcrypt.compare(password,user.password)){
                 return done(null,user)
             } else{
-                return done(null,false,{message: 'Password incorrect'})
+                return done(null,false,{msg: 'Incorrect email or password'})
             }
         } catch (error) {
             return done(e)

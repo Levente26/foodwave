@@ -2,7 +2,7 @@ import FoodCard from "./Foodcard"
 import { useState } from 'react'
 
 
-const SelectedResturant = ( { selected } ) => {
+const SelectedResturant = ( { selected, isLoggedIn } ) => {
     let [productList, setProductList] = useState(null)
     const [filtered, setFiltered] = useState(false)
 
@@ -31,8 +31,8 @@ const SelectedResturant = ( { selected } ) => {
                 ))}
             </div>
             <div className="selected-products">
-                { !filtered && selected.products.map(product => <FoodCard product={product} />)}
-                { filtered && productList.map(product => <FoodCard product={product} />)}
+                { !filtered && selected.products.map(product => <FoodCard isLoggedIn={isLoggedIn} product={product} />)}
+                { filtered && productList.map(product => <FoodCard isLoggedIn={isLoggedIn} product={product} />)}
             </div>
         </div>
     )

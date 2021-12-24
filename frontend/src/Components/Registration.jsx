@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Registration = () => {
     const [email, setEmail] = useState('')
@@ -8,6 +9,7 @@ const Registration = () => {
     const [passwordOnceMore, setPasswordOnceMore] = useState('')
     const [message, setMessage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const navigate = useNavigate()
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
@@ -29,6 +31,9 @@ const Registration = () => {
                 setMessage(response.data.msg)
                 setErrorMessage('')
                 console.log(response.data)
+                setTimeout(() =>{
+                    navigate('/login')
+                },2000)
             } catch (err) {
                 if(password === passwordOnceMore){
                     setErrorMessage(err.response.data.msg)
