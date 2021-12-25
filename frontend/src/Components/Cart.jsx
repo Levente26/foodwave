@@ -2,8 +2,9 @@ import { useState,useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Cart = ( {isLoggedIn} ) => {
+const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum} ) => {
     const [cartItems, setCartItems] = useState(null)
+    // const [id, setId] = useState(null)
 
     useEffect(() => {
         if(isLoggedIn){
@@ -18,7 +19,14 @@ const Cart = ( {isLoggedIn} ) => {
             }
             getCartItems()
         }
-    },[])
+    },[cartItemsNum])
+
+    const deleteItem = async(id) =>{
+        console.log(id)
+        setCartItemsNum(cartItemsNum - 1)
+        const response = await axios.delete(`http://localhost:5000/cartdelete/${id}`)
+        console.log(response)
+    }
 
     return (
         <div className="cart">
@@ -29,7 +37,7 @@ const Cart = ( {isLoggedIn} ) => {
                         <div className="item">{item.resturant}</div>
                         <div className="item">{item.product}</div>
                         <div className="item">{item.price}</div>
-                        <div className="item">Delete</div>
+                        <button onClick={() => deleteItem(item.id)} className="item">Delete</button>
                     </div>
                 ))
             }

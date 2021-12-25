@@ -1,3 +1,23 @@
 [
-
+  {
+    "id": 1,
+    "name": "herold",
+    "resturant": "BambaMarha",
+    "product": "Sloppy Joe burger",
+    "price": 1990
+  },
+  {
+    "id": 2,
+    "name": "herold",
+    "resturant": "BambaMarha",
+    "product": "Jalapeno burger",
+    "price": 1990
+  },
+  {
+    "id": 3,
+    "name": "herold",
+    "resturant": "BambaMarha",
+    "product": "Bamba Marha burger",
+    "price": 1990
+  }
 ]

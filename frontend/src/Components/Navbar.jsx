@@ -2,19 +2,16 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum, setCartItemsNum } ) => {
+const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum } ) => {
     const navigate = useNavigate()
 
-    const logout = async() => {
+    const logout = () => {
         sessionStorage.clear()
-        // setCartItemsNum(0)
         setIsLoggedIn(false)
         setName('')
         setTimeout(() =>{
             navigate('/')
         }, 2000)
-        const response = await axios.delete(`http://localhost:5000/cartdelete/${name}`)
-        console.log(response)
     }
 
     return (

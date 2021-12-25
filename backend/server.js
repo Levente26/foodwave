@@ -91,7 +91,7 @@ app.post('/register', async (req,res) => {
 
 // -------------------------------------- CART --------------------------------------------
 
-const cart = require('./database/cart.json')
+let cart = require('./database/cart.json')
 
 app.get('/cartitems', (req,res) => {
   res.json(cart)
@@ -99,22 +99,27 @@ app.get('/cartitems', (req,res) => {
 
 app.post('/cart', async (req,res) => {
   const cartData = cart
+  let id;
+  try {
+    id = cartData.reduce((a, b) => (a.id > b.id ? a : b)).id + 1;
+  } catch {
+    id = 1;
+  };
   try {
     cartData.push({
+      id: id,
       name: req.body.name,
       resturant: req.body.resturant,
       product: req.body.product,
-      price: req.body.price
+      price: req.body.price,
     })
     fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
-    res.send('ok')
+    res.status(200).json({ ...cartData})
   } catch{ } 
 })
 
 app.delete('/cartdelete/:id', (req,res) => {
-  let index = cart.findIndex(item => item.name === req.query.id);
-  todos.splice(index, 1);
-  res.sendStatus(200);
+  cart = cart.filter(item => item.id != req.params.id)
 })
 
 // ------------------------------------- LOGOUT ----------------------------------------------- 
