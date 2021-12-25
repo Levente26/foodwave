@@ -2,16 +2,17 @@ import { useState,useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum} ) => {
+const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
     const [cartItems, setCartItems] = useState(null)
-    // const [id, setId] = useState(null)
+    
+    const navigate = useNavigate()
+    // console.log(cartItems !== null ? cartItems.length : '')
 
     useEffect(() => {
         if(isLoggedIn){
             const getCartItems = async () => {
                 try {
-                    const response = await axios.get('http://localhost:5000/cartitems')
-                    console.log(response.data)
+                    const response = await axios.get(`http://localhost:5000/cartitems/${name}`)
                     setCartItems(response.data)
                 } catch (err) {
                     console.log(err.response)
@@ -19,13 +20,19 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum} ) => {
             }
             getCartItems()
         }
-    },[cartItemsNum])
+    },[cartItemsNum, cartItems])
+    cartItems!==null && setCartItemsNum(cartItems.length)
+    
+    
 
     const deleteItem = async(id) =>{
         console.log(id)
-        setCartItemsNum(cartItemsNum - 1)
         const response = await axios.delete(`http://localhost:5000/cartdelete/${id}`)
-        console.log(response)
+        setCartItemsNum(cartItems.length)
+    }
+
+    const order = () => {
+        navigate('/order')
     }
 
     return (
@@ -37,10 +44,11 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum} ) => {
                         <div className="item">{item.resturant}</div>
                         <div className="item">{item.product}</div>
                         <div className="item">{item.price}</div>
-                        <button onClick={() => deleteItem(item.id)} className="item">Delete</button>
+                        <div onClick={() => deleteItem(item.id)} className="item">Delete</div>
                     </div>
                 ))
             }
+            <div onClick={order}>Order</div>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum } ) => {
     const navigate = useNavigate()

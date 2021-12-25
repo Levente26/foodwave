@@ -30,7 +30,6 @@ const Registration = () => {
                 let response = await axios.post('http://localhost:5000/register', userData)
                 setMessage(response.data.msg)
                 setErrorMessage('')
-                console.log(response.data)
                 setTimeout(() =>{
                     navigate('/login')
                 },2000)

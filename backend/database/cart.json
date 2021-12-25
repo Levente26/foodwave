@@ -2,22 +2,22 @@
   {
     "id": 1,
     "name": "herold",
-    "resturant": "BambaMarha",
-    "product": "Sloppy Joe burger",
+    "resturant": "Wasabi",
+    "product": "Kumo 9 piece",
     "price": 1990
   },
   {
     "id": 2,
     "name": "herold",
-    "resturant": "BambaMarha",
-    "product": "Jalapeno burger",
-    "price": 1990
+    "resturant": "Wasabi",
+    "product": "Sakusei 16 piece",
+    "price": 5990
   },
   {
     "id": 3,
-    "name": "herold",
+    "name": "levente",
     "resturant": "BambaMarha",
-    "product": "Bamba Marha burger",
+    "product": "Sloppy Joe burger",
     "price": 1990
   }
 ]

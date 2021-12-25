@@ -7,7 +7,7 @@ import Login from './Components/Login';
 import Logout from './Components/Logout';
 import Cart from './Components/Cart';
 import Resturants from './Components/Resturants';
-import Purchase from './Components/Purchase';
+import Order from './Components/Order';
 import Navbar from './Components/Navbar';
 import SelectedResturant from './Components/SelectedResturant';
 
@@ -17,7 +17,9 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [name, setName] = useState('')
   const [cartItemsNum, setCartItemsNum] = useState(0)
-  console.log(cartItemsNum)
+  // console.log(cartItemsNum)
+
+  
 
   return (
     <BrowserRouter>
@@ -34,10 +36,10 @@ const App = () => {
           <Route path='/register' element={<Registration />} />
           <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/cart' element={<Cart cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} isLoggedIn={isLoggedIn} />} />
+          <Route path='/cart' element={<Cart name={name} cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} isLoggedIn={isLoggedIn} />} />
           <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
           <Route path='/selected-resturant' element={<SelectedResturant cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} name={name} isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
-          <Route path='/purchase' element={<Purchase />} />
+          <Route path='/order' element={<Order />} />
         </Routes>
       </main>  
     </BrowserRouter>

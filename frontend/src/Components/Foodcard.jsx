@@ -12,7 +12,6 @@ const FoodCard = ({ product, isLoggedIn, name, resturant, setCartItemsNum, cartI
     const addToCart = async (foodname, price) => {
         const cartData = {name: name, resturant: resturant, product: foodname, price: price }
         const response = await axios.post('http://localhost:5000/cart', cartData)
-        console.log(response)
         setCartItemsNum(cartItemsNum + 1)
     }
     const navigateToLogin = () => {

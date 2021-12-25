@@ -34,5 +34,11 @@
     "name": "herold",
     "email": "h@h",
     "password": "$2b$10$NVW.jFR2f.jX0yRH.bu.Dudczvl3EYOZAZFPWWseDEqvN2p1r6Asm"
+  },
+  {
+    "id": "1640433422291",
+    "name": "levente",
+    "email": "ll@l",
+    "password": "$2b$10$OzmPHWHeShKl.XbCdxo7kO.WCj6VGLQJi2jclc2RMAeV5gke6tOJ2"
   }
 ]

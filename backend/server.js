@@ -57,7 +57,7 @@ app.post('/register', async (req,res) => {
   console.log("REGISTER TRIGGERED")
   const dataUsers = users;
 
-  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  const hashedPassword = await bcrypt.hash(req.body.password, 10)
   const newUser = {
     id: Date.now().toString(),
     name: req.body.name,
@@ -65,27 +65,27 @@ app.post('/register', async (req,res) => {
     password: hashedPassword,
   };
 
-  let existanceCheckName = false;
+  let existanceCheckName = false
   dataUsers.map(user => {
     if (user.name === req.body.name) {
-      return (existanceCheckName = true);
+      return (existanceCheckName = true)
     }
   });
-  let existanceCheckEmail = false;
+  let existanceCheckEmail = false
   dataUsers.map(user => {
     if (user.email === req.body.email) {
-      return (existanceCheckEmail = true);
+      return (existanceCheckEmail = true)
     }
-  });
+  })
 
   if (existanceCheckName) {
-    res.status(400).json({msg: "Username alredy exists please choose another one"});
+    res.status(400).json({msg: "Username alredy exists please choose another one"})
   } else if(existanceCheckEmail){
-    res.status(400).json({msg: "Email address alredy exists please choose another one"});
+    res.status(400).json({msg: "Email address alredy exists please choose another one"})
   } else {
     dataUsers.push(newUser);
     fs.writeFileSync("./database/users.json", JSON.stringify(dataUsers, null, 2));
-    res.status(201).json({msg: "Registration successfully completed.", name: newUser.name});
+    res.status(201).json({msg: "Registration successfully completed.", name: newUser.name})
   }
 })
 
@@ -93,17 +93,18 @@ app.post('/register', async (req,res) => {
 
 let cart = require('./database/cart.json')
 
-app.get('/cartitems', (req,res) => {
-  res.json(cart)
+app.get('/cartitems/:id', (req,res) => {
+  const cartItems = cart.filter(item => item.name == req.params.id)
+  res.json(cartItems)
 })
 
 app.post('/cart', async (req,res) => {
   const cartData = cart
-  let id;
+  let id
   try {
-    id = cartData.reduce((a, b) => (a.id > b.id ? a : b)).id + 1;
+    id = cartData.reduce((a, b) => (a.id > b.id ? a : b)).id + 1
   } catch {
-    id = 1;
+    id = 1
   };
   try {
     cartData.push({
@@ -127,6 +128,36 @@ app.delete('/cartdelete/:id', (req,res) => {
 app.delete('/logout', (req,res) => {
   req.logOut()
   res.send('logged out')
+})
+
+// ------------------------------------- ORDER ------------------------------------------------
+
+const order = require('./database/order.json')
+
+app.post('/order', (req,res) => {
+  const data = order
+
+  let id
+  try {
+    id = data.reduce((a, b) => (a.id > b.id ? a : b)).id + 1
+  } catch {
+    id = 1
+  }
+  try {
+    data.push({
+      id: id,
+      name: req.body.name,
+      address: req.body.address,
+      phonenumber: req.body.phonenumber,
+      email: req.body.email,
+      payment: req.body.payment,
+      resturant: req.body.resturant,
+      products: req.body.products
+    })
+    fs.writeFileSync("./database/order.json", JSON.stringify(data,null,2))
+    res.status(200).json({msg: 'successfull', ...data})
+    // res.send('success')
+  } catch { }
 })
 
 app.listen(5000)

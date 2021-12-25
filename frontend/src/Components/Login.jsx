@@ -21,12 +21,10 @@ const Login = ( { setIsLoggedIn, setName } ) => {
             let response = await axios.post('http://localhost:5000/login', loginCredentials)
             setMessage(response.data.msg)
             setErrorMessage('')
-            console.log(response.data)
             setIsLoggedIn(true)
             setName(response.data.name)
             sessionStorage.setItem('name', response.data.name)
             sessionStorage.setItem('userid', response.data.id)
-            console.log(sessionStorage.name)
             setTimeout(() =>{
                 navigate('/')
             },500)
