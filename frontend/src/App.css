@@ -338,6 +338,33 @@ ul{
     }
 }
 
+/* --------------------------------------- CART ---------------------------------------------------------- */
+
+.cart{
+    margin-top: 4.5rem;
+}
+
+.cart-title{
+    text-align: center;
+}
+
+.item-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border: 1px solid red;
+    margin: 0.5rem;
+}
+
+.item{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 /* ---------------------------------- LOGIN & LOGOUT & REGISTRATION ----------------------------------------------- */
 

@@ -27,6 +27,7 @@ const App = () => {
         setName={setName} 
         name={name}
         cartItemsNum={cartItemsNum} 
+        setCartItemsNum={setCartItemsNum}
       />
       <main>
         <Routes>
@@ -34,7 +35,7 @@ const App = () => {
           <Route path='/register' element={<Registration />} />
           <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<Cart isLoggedIn={isLoggedIn} />} />
           <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
           <Route path='/selected-resturant' element={<SelectedResturant cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} name={name} isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
           <Route path='/purchase' element={<Purchase />} />

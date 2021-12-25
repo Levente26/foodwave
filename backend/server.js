@@ -93,6 +93,10 @@ app.post('/register', async (req,res) => {
 
 const cart = require('./database/cart.json')
 
+app.get('/cartitems', (req,res) => {
+  res.json(cart)
+})
+
 app.post('/cart', async (req,res) => {
   const cartData = cart
   try {
@@ -105,6 +109,12 @@ app.post('/cart', async (req,res) => {
     fs.writeFileSync("./database/cart.json", JSON.stringify(cartData,null,2))
     res.send('ok')
   } catch{ } 
+})
+
+app.delete('/cartdelete/:id', (req,res) => {
+  let index = cart.findIndex(item => item.name === req.query.id);
+  todos.splice(index, 1);
+  res.sendStatus(200);
 })
 
 // ------------------------------------- LOGOUT ----------------------------------------------- 
