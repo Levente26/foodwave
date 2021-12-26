@@ -17,9 +17,6 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [name, setName] = useState('')
   const [cartItemsNum, setCartItemsNum] = useState(0)
-  // console.log(cartItemsNum)
-
-  
 
   return (
     <BrowserRouter>
@@ -29,6 +26,7 @@ const App = () => {
         setName={setName} 
         name={name}
         cartItemsNum={cartItemsNum} 
+        setCartItemsNum={setCartItemsNum}
       />
       <main>
         <Routes>
@@ -39,7 +37,7 @@ const App = () => {
           <Route path='/cart' element={<Cart name={name} cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} isLoggedIn={isLoggedIn} />} />
           <Route path='/resturants' element={<Resturants allresturant={resturant} setSelectedResturant={setSelectedResturant} />} />
           <Route path='/selected-resturant' element={<SelectedResturant cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} name={name} isLoggedIn={isLoggedIn} selected={selectedResturant} />} />
-          <Route path='/order' element={<Order />} />
+          <Route path='/order' element={<Order username={name} />} />
         </Routes>
       </main>  
     </BrowserRouter>

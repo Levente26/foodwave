@@ -40,5 +40,17 @@
     "name": "levente",
     "email": "ll@l",
     "password": "$2b$10$OzmPHWHeShKl.XbCdxo7kO.WCj6VGLQJi2jclc2RMAeV5gke6tOJ2"
+  },
+  {
+    "id": "1640527392581",
+    "name": "liza",
+    "email": "liza@liza",
+    "password": "$2b$10$x.ZywdBMCnDzl5qzRupbGelTF5HnJomRcd3fxKrZBSElRvi96ja/O"
+  },
+  {
+    "id": "1640540463291",
+    "name": "kristóf",
+    "email": "kk@k",
+    "password": "$2b$10$mgk.yIhUiZquwDzX1qBXUek0Zze/y7YQueKTkYCgtRHHtgMyOhHLa"
   }
 ]

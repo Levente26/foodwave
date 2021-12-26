@@ -21,6 +21,7 @@
 
 .name{
     color: white;
+    font-size: 1.6rem;
 }
 
 .link {
@@ -54,7 +55,7 @@
 }
   
 @media screen and (max-width: 650px){
-    .link{
+    .link, .name{
         font-size: 1.2rem;
     }
     .navbar{
@@ -62,15 +63,15 @@
     }
 }
 @media screen and (max-width: 450px){
-    .link{
+    .link, .name{
         font-size: 1rem;
     }
     .navbar{
         padding: 0.1rem 0.5rem 0.1rem 0.5rem;
     }
 }
-@media screen and (max-width: 300px){
-    .link{
+@media screen and (max-width: 350px){
+    .link, .name{
         font-size: 0.8rem;
     }
 }
@@ -224,15 +225,6 @@ section{
     width: 100%;
 }
 
-@media screen and (max-width:700px){
-    .selected-products{
-        flex-direction: column;
-    }
-    .food-card{
-        width: 100%;
-    }
-} 
-
 /* ---------------------------------- FOOD CARD ---------------------------------------- */
 
 .food-card{
@@ -250,11 +242,26 @@ section{
     padding: 0.5rem;
 }
 
+@media screen and (max-width:850px){
+    .selected-products{
+        flex-direction: column;
+    }
+    .food-card{
+        width: 90%;
+    }
+} 
+
 .foodname{
     font-size: 2rem;
-    text-align: center;
-    
+    text-align: center;   
 }
+
+@media screen and (max-width: 470px){
+    .foodname{
+        font-size: 1.5rem;
+    }
+}
+
 
 article {
     border-bottom: 2px solid transparent;
@@ -292,6 +299,12 @@ article {
     font-size: 1rem;
 }
 
+@media screen and (max-width: 500px){
+    .ingredient-or-allergens{
+        font-size: 0.6rem;
+    }
+}
+
 ul{
     list-style: none;
     display: flex;
@@ -325,6 +338,17 @@ ul{
     font-style: italic;
 }
 
+@media screen and (max-width: 420px){
+    .food-price p{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 230px){
+    .food-price p{
+        font-size: 0.7rem;
+    }
+}
+
 @media screen and (max-width:800px){
     .food-image{
         width: 8rem;
@@ -342,10 +366,11 @@ ul{
 
 .cart{
     margin-top: 4.5rem;
-}
-
-.cart-title{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8rem;
+    padding: 1rem;
 }
 
 .item-row{
@@ -353,8 +378,15 @@ ul{
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem;
-    border: 1px solid red;
-    margin: 0.5rem;
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+        to right,
+        hsl(303, 100%, 39%),
+        hsl(189, 100%, 45%)
+    );
+    border-image-slice: 1;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .item{
@@ -362,18 +394,46 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-right: 2px solid hsl(189, 100%, 45%);
 }
 
+.item:nth-child(4){
+    border-right: none;
+}
+
+.total{
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+@media screen and (max-width: 700px) {
+    .item{
+        font-size: 0.8rem;
+    }
+    .cart{
+        padding: 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    .item{
+        font-size: 0.6rem;
+    }
+    .cart{
+        padding: 0;
+    }
+}
 
 
 /* ---------------------------------- LOGIN & LOGOUT & REGISTRATION ----------------------------------------------- */
 
 .logout{
-    font-size: 3rem;
+    font-size: 2.5rem;
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    color: rgb(135, 0, 197)
 }
 
 .login, .registration{
@@ -414,6 +474,45 @@ input{
     text-align: center;
     color: red;
 }
+
+/* ---------------------------------------- ORDER ------------------------------------------------- */
+
+.order{
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.order label{
+    margin: 0;
+}
+
+.payment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.radiobtn{
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 850px) {
+    .radiobtn{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .radiobtn{
+        width: 60%;
+    }
+}
+
+
 
 /* --------------------------------------- WAVES --------------------------------------------------- */
 
@@ -492,7 +591,7 @@ input{
 /* -------------------------------------- TITLE ANIMATION ------------------------------------ */
 
 
-.content, .content-2, .content-3, .content-4 {
+.content, .content-2, .content-3, .content-4, .content-5 {
     position: relative;
     z-index: 200;
 }
@@ -500,6 +599,7 @@ input{
 .content-4{
     margin-bottom: 7rem;
 }
+
 
 .content h1 {
     color: #fff;
@@ -511,7 +611,7 @@ input{
 }
 
 .content-2 h1{
-    color: rgb(0, 0, 0);
+    color: rgb(135, 0, 197);
     font-size: 3.5rem;
     position: absolute;
     left: 50%;
@@ -521,7 +621,7 @@ input{
 }
 
 .content-3 h1{
-    color: rgb(0, 0, 0);
+    color: rgb(135, 0, 197);
     font-size: 2.8rem;
     position: absolute;
     transform: translate(-50%, -80%);
@@ -535,6 +635,18 @@ input{
     transform: translate(-50%,0);
     letter-spacing: 0.2rem;
 }
+.content-5 h1{
+    color: rgb(135, 0, 197);
+    font-size: 4rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    letter-spacing: 0.2rem;
+    margin-bottom: 10rem;
+    width: 100%;
+    text-align: center;
+}
   
   .content h1:nth-child(1) {
     color: transparent;
@@ -542,13 +654,17 @@ input{
   }
   .content-2 h1:nth-child(1) {
     color: transparent;
-    -webkit-text-stroke: 2px #000000;
+    -webkit-text-stroke: 2px rgb(135, 0, 197);
   }
   .content-3 h1:nth-child(1) {
     color: transparent;
-    -webkit-text-stroke: 2px #000000;
+    -webkit-text-stroke: 2px rgb(135, 0, 197);
 }
 .content-4 h1:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(135, 0, 197);
+}
+.content-5 h1:nth-child(1) {
     color: transparent;
     -webkit-text-stroke: 2px rgb(135, 0, 197);
 }
@@ -559,14 +675,18 @@ input{
     animation: animate 4s ease-in-out infinite;
   }
   .content-2 h1:nth-child(2) {
-    color: #000000;
+    color: rgb(135, 0, 197);
     animation: animate 4s ease-in-out infinite;
   }
   .content-3 h1:nth-child(2) {
-    color: #000000;
+    color: rgb(135, 0, 197);
     animation: animate 4s ease-in-out infinite;
   }
   .content-4 h1:nth-child(2) {
+    color: rgb(135, 0, 197);
+    animation: animate 4s ease-in-out infinite;
+  }
+  .content-5 h1:nth-child(2) {
     color: rgb(135, 0, 197);
     animation: animate 4s ease-in-out infinite;
   }
@@ -614,6 +734,9 @@ input{
     .content-3 h1{
         font-size: 2rem;
     }
+    .content-5 h1{
+        font-size: 3rem;
+    }
     .box{
         margin-top: 5rem;
         z-index: 150;
@@ -621,6 +744,9 @@ input{
     .resturant-logo{
         width: 10rem;
         height: 10rem;
+    }
+    .content-4 h1{
+        font-size: 3rem;
     }
 } 
 
@@ -634,7 +760,7 @@ input{
     }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:410px) {
     .content h1{
         font-size: 3rem;
     }
@@ -643,10 +769,14 @@ input{
     }
     .content-3 h1{
         font-size: 1.5rem;
+        margin-top: 1rem;
     }
     .resturant-logo{
         width: 7rem;
         height: 7rem;
+    }
+    .content-5 h1{
+        font-size: 2rem;
     }
 }
 
@@ -724,6 +854,81 @@ input{
     border-radius: 5px;
     height: 60px;
 }
+.box-8 { 
+    background-color: #e70000; 
+    font-size: 1.4rem;
+    width: 10rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 60px;
+}
+.box-9{ 
+    background-color: #00ccd3; 
+    font-size: 1.4rem;
+    width: 10rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 60px;
+    position: sticky;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+.box-10 { 
+    background-color: #00ccd3; 
+    font-size: 1.4rem;
+    width: 10rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 60px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+@media screen and (max-width: 800px){
+    .box-4{
+        width: 4rem;
+    }
+    .btn-4{
+        font-size: 0.8rem;
+    }
+    .box-8{
+        width: 4rem;
+    }
+    .btn-8{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 1000px){
+    .box-4{
+        width: 8rem;
+    }
+    .btn-4{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 650px){
+    .box-4{
+        width: 3rem;
+    }
+    .box-8{
+        width: 3rem;
+    }
+    .btn-4{
+        font-size: 0.8rem;
+    }
+    .btn-8{
+        font-size: 0.8rem;
+    }
+}
 
 .btn {
   line-height: 50px;
@@ -759,7 +964,6 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
 }
 .btn-5 {
     height: 40px;
@@ -781,6 +985,33 @@ input{
     align-items: center;
 }
 .btn-7 {
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-8 {
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-9 {
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-10 {
     height: 60px;
     text-align: center;
     width: 100%;

@@ -4,9 +4,7 @@ import axios from 'axios'
 
 const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
     const [cartItems, setCartItems] = useState(null)
-    
     const navigate = useNavigate()
-    // console.log(cartItems !== null ? cartItems.length : '')
 
     useEffect(() => {
         if(isLoggedIn){
@@ -21,9 +19,13 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
             getCartItems()
         }
     },[cartItemsNum, cartItems])
-    cartItems!==null && setCartItemsNum(cartItems.length)
     
-    
+    const amountList = []
+    cartItems !== null && setCartItemsNum(cartItems.length)
+    cartItems !== null && cartItems.map(item => amountList.push(item.price))
+    // console.log(amountList)
+    const totalPrice = amountList.reduce((prev, curr) => prev + curr, 0);
+
 
     const deleteItem = async(id) =>{
         console.log(id)
@@ -37,18 +39,28 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
 
     return (
         <div className="cart">
-            <h1 className="cart-title">Cart Content</h1>
+            <div className="content-5">
+                <h1>Cart Content</h1>
+                <h1>Cart Content</h1>
+            </div>
+            <div>
             { cartItems !== null &&
                 cartItems.map(item => (
                     <div className="item-row">
                         <div className="item">{item.resturant}</div>
                         <div className="item">{item.product}</div>
-                        <div className="item">{item.price}</div>
-                        <div onClick={() => deleteItem(item.id)} className="item">Delete</div>
+                        <div className="item">{item.price} HUF</div>
+                        <div className="box-8">
+                            <div className='btn-8 btn-three' onClick={() => deleteItem(item.id)}>Delete</div>
+                        </div>
                     </div>
                 ))
             }
-            <div onClick={order}>Order</div>
+            {isLoggedIn && <p className="total">Total amount: {totalPrice} HUF</p>}
+            </div>
+            {isLoggedIn && <div className="box-9">
+                <div className='btn-9 btn-three' onClick={order}>Order</div>
+            </div>}
         </div>
     )
 }

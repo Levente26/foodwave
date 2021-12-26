@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import axios from 'axios'
 
-const Purchase = () => {
+const Order = ( { username } ) => {
     const [purchaseItems, setPurchaseItems] = useState(null)
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
@@ -14,7 +14,7 @@ const Purchase = () => {
     useEffect(() => {
         const getPurchaseItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/cartitems')
+                const response = await axios.get(`http://localhost:5000/cartitems/${username}`)
                 setPurchaseItems(response.data)
                 
             } catch (err) {
@@ -77,7 +77,7 @@ const Purchase = () => {
                     products: products
                 }                
                 try {
-                    const response = axios.post('http://localhost:5000/purchase', data)
+                    const response = axios.post('http://localhost:5000/order', data)
                     console.log(response)
                 } catch (err) {
                     console.log(err)
@@ -87,7 +87,7 @@ const Purchase = () => {
     }
 
     return(
-        <div style={{marginTop:'5rem'}}>
+        <div className="order">
             <form action='/purchase' method="POST">
                 <label>Enter your name</label>
                 <input type='text' value={name} onChange={changeName} required />
@@ -97,14 +97,22 @@ const Purchase = () => {
                 <input type='text' value={phonenumber} onChange={changePhonenumber} required />
                 <label>Enter your email address</label>
                 <input type='text' value={email} onChange={changeEmail} required />
-                <div>
+                <div className="payment">
                     <label>Payment</label>
-                    <input type='radio' checked={cash} value={cash} onChange={changeCash} />
-                    <input type='radio' checked={card} value={card} onChange={changeCard} />
+                    <div className="radiobtn">
+                        <div>
+                            <input type='radio' checked={cash} value={cash} onChange={changeCash} /> Cash
+                        </div>
+                        <div>
+                            <input type='radio' checked={card} value={card} onChange={changeCard} /> Credit card
+                        </div>
+                    </div>
                 </div>
             </form>
-            <div onClick={order}>Order</div>
+            <div className="box-10">
+                <div className='btn-10 btn-three' onClick={order}>Order</div>
+            </div>
         </div>
     )
 }
-export default Purchase
+export default Order

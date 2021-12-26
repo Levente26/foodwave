@@ -7,17 +7,94 @@
     "price": 1990
   },
   {
-    "id": 2,
-    "name": "herold",
+    "id": 5,
+    "name": "liza",
     "resturant": "Wasabi",
     "product": "Sakusei 16 piece",
     "price": 5990
   },
   {
-    "id": 3,
+    "id": 6,
+    "name": "liza",
+    "resturant": "Wasabi",
+    "product": "Koshi 12 piece",
+    "price": 3650
+  },
+  {
+    "id": 7,
+    "name": "herold",
+    "resturant": "BambaMarha",
+    "product": "Sloppy Joe burger",
+    "price": 1990
+  },
+  {
+    "id": 8,
+    "name": "herold",
+    "resturant": "BambaMarha",
+    "product": "Jalapeno burger",
+    "price": 1990
+  },
+  {
+    "id": 9,
+    "name": "liza",
+    "resturant": "Wasabi",
+    "product": "Kumo 9 piece",
+    "price": 1990
+  },
+  {
+    "id": 10,
+    "name": "liza",
+    "resturant": "Wasabi",
+    "product": "Sakusei 16 piece",
+    "price": 5990
+  },
+  {
+    "id": 17,
+    "name": "kristóf",
+    "resturant": "BugerKing",
+    "product": "Chili Cheese Bacon King",
+    "price": 950
+  },
+  {
+    "id": 19,
+    "name": "kristóf",
+    "resturant": "BugerKing",
+    "product": "Texasburger",
+    "price": 550
+  },
+  {
+    "id": 20,
+    "name": "levente",
+    "resturant": "Bellozzo",
+    "product": "Carbonara",
+    "price": 1150
+  },
+  {
+    "id": 21,
+    "name": "levente",
+    "resturant": "Bellozzo",
+    "product": "Carbonara",
+    "price": 1150
+  },
+  {
+    "id": 22,
     "name": "levente",
     "resturant": "BambaMarha",
     "product": "Sloppy Joe burger",
     "price": 1990
+  },
+  {
+    "id": 23,
+    "name": "liza",
+    "resturant": "BambaMarha",
+    "product": "Bamba Marha burger",
+    "price": 1990
+  },
+  {
+    "id": 24,
+    "name": "liza",
+    "resturant": "BambaMarha",
+    "product": "Double Bacon burger",
+    "price": 1790
   }
 ]

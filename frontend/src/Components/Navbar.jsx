@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum } ) => {
+const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum, setCartItemsNum } ) => {
     const navigate = useNavigate()
 
     const logout = () => {
         sessionStorage.clear()
         setIsLoggedIn(false)
         setName('')
+        setCartItemsNum(0)
         setTimeout(() =>{
             navigate('/')
-        }, 2000)
+        }, 500)
     }
 
     return (
