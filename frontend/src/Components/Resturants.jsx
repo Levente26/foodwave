@@ -10,7 +10,9 @@ const Resturants = ( { allresturant,  setSelectedResturant} ) => {
     }
 
     return (
-        <div className="resturant-list">
+        <div className='res'>
+            <div className='row'></div>
+            <div className="resturant-list">
             {allresturant.map(resturant => (
                 <div className="resturant-card" key={resturant.name}>
                     <div className="resturant-card-image">
@@ -29,6 +31,8 @@ const Resturants = ( { allresturant,  setSelectedResturant} ) => {
                     </div>
                 </div>
             ))}
+            </div>
+            <div className='row'></div>
         </div>
     )
 }

@@ -23,7 +23,6 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
     const amountList = []
     cartItems !== null && setCartItemsNum(cartItems.length)
     cartItems !== null && cartItems.map(item => amountList.push(item.price))
-    // console.log(amountList)
     const totalPrice = amountList.reduce((prev, curr) => prev + curr, 0);
 
 
@@ -43,6 +42,9 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
                 <h1>Cart Content</h1>
                 <h1>Cart Content</h1>
             </div>
+            {
+                !isLoggedIn && <div className="emptycart"></div>
+            }
             <div>
             { cartItems !== null &&
                 cartItems.map(item => (

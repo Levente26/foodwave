@@ -43,12 +43,12 @@ const Login = ( { setIsLoggedIn, setName } ) => {
                 <input id='email' name='email' required type='text' value={email} onChange={changeEmail} />
                 <label>Enter your password</label>
                 <input type='password' id='password' name='password' required value={password} onChange={changePassword} />
+                {message !== '' && <p className='msg'>{message}</p>}
+                {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
             </form>
             <div className="box-7">
                 <div className='btn-7 btn-three' onClick={login}>Login</div>
             </div>
-            {message !== '' && <p className='msg'>{message}</p>}
-            {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
         </div>
     )
 }

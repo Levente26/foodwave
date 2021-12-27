@@ -52,5 +52,11 @@
     "name": "kristóf",
     "email": "kk@k",
     "password": "$2b$10$mgk.yIhUiZquwDzX1qBXUek0Zze/y7YQueKTkYCgtRHHtgMyOhHLa"
+  },
+  {
+    "id": "1640560518509",
+    "name": "jocka",
+    "email": "j@jj",
+    "password": "$2b$10$YXp/bNk6FkjfQhN8A36L.eH2N4eEUYW6WMikuyHJQHSAosp01ewpq"
   }
 ]

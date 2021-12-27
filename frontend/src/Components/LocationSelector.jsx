@@ -1,4 +1,10 @@
 import { useState } from 'react'
+import Budapest from '../images/budapest.jpg'
+import Debrecen from '../images/debrecen.jpg'
+import Pecs from '../images/pecs.jpg'
+import Bekescsaba from '../images/bekescsaba.jpg'
+import Szeged from '../images/szeged.jpg'
+import Nyiregyhaza from '../images/nyiregyhaza.jpg'
 
 const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
     const [selectedCity, setSelectedCity] = useState('Budapest')
@@ -35,7 +41,27 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
         <div className='main-location'>            
             <div className='location-selector'>
                 <div>
-                    <label>Select your city</label>
+                    <div>
+                        {/* <img className='city-img' src={Budapest} alt='' /> */}
+                    </div>
+                    <div>
+                        {/* <img className='city-img' src={Debrecen} alt='' /> */}
+                    </div>
+                    <div>
+                        {/* <img className='city-img' src={Pecs} alt='' /> */}
+                    </div>
+                    <div>
+                        {/* <img className='city-img' src={Szeged} alt='' /> */}
+                    </div>
+                    <div>
+                        {/* <img className='city-img' src={Nyiregyhaza} alt='' /> */}
+                    </div>
+                    <div>
+                        {/* <img className='city-img' src={Bekescsaba} alt='' /> */}
+                    </div>
+                </div>
+                <div>
+                    <label className='selector'>Select your city</label>
                     <select value={selectedCity} onChange={changeCity}>
                         <option value='Budapest'>Budapest</option>
                         <option value='Debrecen'>Debrecen</option>
@@ -47,7 +73,7 @@ const LocationSelector = ( { resturants, setResturant, setIsClicked } ) => {
                 </div>
                 { selectedCity === 'Budapest' && 
                     <div>
-                        <label>Select your district</label>
+                        <label className='selector'>Select your district</label>
                         <select value={selectedDistrict} onChange={changeDistrict}>
                             <option value='1'>District 1</option>
                             <option value='2'>District 2</option>

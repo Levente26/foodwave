@@ -96,5 +96,26 @@
     "resturant": "BambaMarha",
     "product": "Double Bacon burger",
     "price": 1790
+  },
+  {
+    "id": 25,
+    "name": "jocka",
+    "resturant": "Bellozzo",
+    "product": "Pasta in Bianco",
+    "price": 1050
+  },
+  {
+    "id": 26,
+    "name": "jocka",
+    "resturant": "Bellozzo",
+    "product": "Carbonara",
+    "price": 1150
+  },
+  {
+    "id": 27,
+    "name": "jocka",
+    "resturant": "Bellozzo",
+    "product": "Gorgonzola",
+    "price": 1250
   }
 ]
