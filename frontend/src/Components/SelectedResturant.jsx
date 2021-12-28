@@ -1,7 +1,6 @@
 import FoodCard from "./Foodcard"
 import { useState } from 'react'
 
-
 const SelectedResturant = ( { selected, isLoggedIn, name, setCartItemsNum, cartItemsNum } ) => {
     let [productList, setProductList] = useState(null)
     const [filtered, setFiltered] = useState(false)
@@ -16,10 +15,13 @@ const SelectedResturant = ( { selected, isLoggedIn, name, setCartItemsNum, cartI
     
     return (
         <div className="selected">
-            <div className="content-4">
-                <h1>{selected.name}</h1>
-                <h1>{selected.name}</h1>
+            <div className="wrapper">
+                <div className="content-4">
+                    <h1>{selected.name}</h1>
+                    <h1>{selected.name}</h1>
+                </div>
             </div>
+
             <div className="selected-types">
                 <div className="box-4">
                     <div className='btn-4 btn-three' onClick={showAllProduct}>All product</div>
@@ -30,6 +32,7 @@ const SelectedResturant = ( { selected, isLoggedIn, name, setCartItemsNum, cartI
                     </div>
                 ))}
             </div>
+            
             <div className="selected-products">
                 { !filtered && selected.products.map(product => <FoodCard cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} resturant={selected.name} name={name} isLoggedIn={isLoggedIn} product={product} />)}
                 { filtered && productList.map(product => <FoodCard cartItemsNum={cartItemsNum} setCartItemsNum={setCartItemsNum} resturant={selected.name} name={name} isLoggedIn={isLoggedIn} product={product} />)}

@@ -24,7 +24,7 @@ const Registration = () => {
         setPasswordOnceMore(e.target.value)
     }
     const register = async () => {
-        if(username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
+        if( password === passwordOnceMore && username !== '' && email !== '' && password !== '' && passwordOnceMore !== ''){
             const userData = {name: username, email: email, password: password}
             try {
                 let response = await axios.post('http://localhost:5000/register', userData)
@@ -42,7 +42,9 @@ const Registration = () => {
                 }
             console.log(err.response)
             }
-        } 
+        } else {
+            setErrorMessage('Wrong password')
+        }
     }
 
     return (
@@ -50,15 +52,20 @@ const Registration = () => {
             <form action='/register' method='POST'>
                 <label>Enter your email address</label>
                 <input type='text' id='email' name='email' required value={email} onChange={changeEmail} />
+
                 <label>Enter your username</label>
                 <input type='text' id='username' name='username' required  value={username} onChange={changeUsername} />
+                
                 <label>Enter your password</label>
                 <input type='password' id='password' name='password' required  value={password} onChange={changePassword} />
+                
                 <label>Enter your password once more</label>
                 <input type='password' value={passwordOnceMore} onChange={changePasswordOnceMore} />
+                
                 {message !== '' && <p className='msg'>{message}</p>}
                 {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
             </form>
+            
             <div className="box-7">
                 <div className='btn-7 btn-three' onClick={register}>Registration</div>
             </div>

@@ -10,6 +10,8 @@ import Resturants from './Components/Resturants';
 import Order from './Components/Order';
 import Navbar from './Components/Navbar';
 import SelectedResturant from './Components/SelectedResturant';
+import LocationSelector from './Components/LocationSelector';
+import About from './Components/About';
 
 const App = () => {
   const [resturant, setResturant] = useState(null)
@@ -30,7 +32,9 @@ const App = () => {
       />
       <main>
         <Routes>
-          <Route path='/' element={<Homepage isLoggedIn={isLoggedIn} setResturant={setResturant} />} />
+          <Route path='/' element={<Homepage />} />
+          <Route path='/location' element={<LocationSelector setResturant={setResturant} />} />
+          <Route path='/about' element={<About />} />
           <Route path='/register' element={<Registration />} />
           <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
           <Route path='/logout' element={<Logout />} />

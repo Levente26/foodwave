@@ -11,17 +11,17 @@ const Navbar = ( { isLoggedIn, setIsLoggedIn, setName, name, cartItemsNum, setCa
         setCartItemsNum(0)
         setTimeout(() =>{
             navigate('/')
-        }, 500)
+        }, 1000)
     }
 
     return (
         <div className='navbar'>
             <Link to='/' className='link'>Home</Link>
-            <Link to='/cart' className='link'>Cart 
+            { isLoggedIn && <Link to='/cart' className='link'>Cart 
                 { (cartItemsNum > 0 && isLoggedIn) && 
                     <span className='cartItemsNum'> ( {cartItemsNum} )</span>
                 }
-            </Link>
+            </Link>}
             { !isLoggedIn && <Link to='/register' className='link'>Regisration</Link> }
             { !isLoggedIn && <Link to='/login' className='link'>Login</Link> }
             { isLoggedIn && <Link to='/logout' className='link' onClick={logout}>Logout</Link> }

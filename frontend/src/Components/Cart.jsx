@@ -38,13 +38,13 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
 
     return (
         <div className="cart">
-            <div className="content-5">
-                <h1>Cart Content</h1>
-                <h1>Cart Content</h1>
+            <div className="wrapper">
+                <div className="content-5">
+                    <h1>Cart Content</h1>
+                    <h1>Cart Content</h1>
+                </div>
             </div>
-            {
-                !isLoggedIn && <div className="emptycart"></div>
-            }
+
             <div>
             { cartItems !== null &&
                 cartItems.map(item => (
@@ -58,6 +58,7 @@ const Cart = ( {isLoggedIn, setCartItemsNum, cartItemsNum, name} ) => {
                     </div>
                 ))
             }
+            
             {isLoggedIn && <p className="total">Total amount: {totalPrice} HUF</p>}
             </div>
             {isLoggedIn && <div className="box-9">

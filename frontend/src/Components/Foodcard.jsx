@@ -23,6 +23,7 @@ const FoodCard = ({ product, isLoggedIn, name, resturant, setCartItemsNum, cartI
             <article>
                 <h1 className='foodname'>{product.foodname}</h1> 
             </article>
+
             <div className='food-content'>
                 <div>
                     <img className='food-image' src={product.image} alt='' />
@@ -43,6 +44,7 @@ const FoodCard = ({ product, isLoggedIn, name, resturant, setCartItemsNum, cartI
                     <div className='btn-6 btn-three' onClick={clickToggle}>{!toggle ? 'Show allergens' : 'Show ingredients'}</div>
                 </div>
             </div>
+            
             <div className='food-price'>
                 <p>{product.price} HUF</p>
                 { isLoggedIn && 

@@ -46,6 +46,7 @@ const Login = ( { setIsLoggedIn, setName } ) => {
                 {message !== '' && <p className='msg'>{message}</p>}
                 {errorMessage !== '' && <p className='errmsg'>{errorMessage}</p>}
             </form>
+            
             <div className="box-7">
                 <div className='btn-7 btn-three' onClick={login}>Login</div>
             </div>

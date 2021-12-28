@@ -155,9 +155,10 @@ app.post('/order', (req,res) => {
       products: req.body.products
     })
     fs.writeFileSync("./database/order.json", JSON.stringify(data,null,2))
-    res.status(200).json({msg: 'successfull', ...data})
-    // res.send('success')
-  } catch { }
+    res.status(200).json({msg: 'Successful order', ...data})
+  } catch { 
+    res.json({msg: 'Something went wrong, please try again'})
+  }
 })
 
 app.listen(5000)

@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react"
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Order = ( { username } ) => {
     const [purchaseItems, setPurchaseItems] = useState(null)
@@ -9,6 +10,9 @@ const Order = ( { username } ) => {
     const [email, setEmail] = useState('')
     const [cash, setCash] = useState(true)
     const [card, setCard] = useState(false)
+    const [message, setMessage] = useState(null)
+    const [errMessage, setErrMessage] = useState(null)
+    const navigate = useNavigate()
 
     console.log(purchaseItems)
     useEffect(() => {
@@ -61,9 +65,14 @@ const Order = ( { username } ) => {
                 }
                 try {
                     const response = axios.post('http://localhost:5000/order', data)
-                    console.log(response)
+                    console.log(response.data)
+                    setMessage('Successful order')
+                    setTimeout(() => {
+                        navigate('/')
+                    },5000)
                 } catch (err) {
                     console.log(err)
+                    setErrMessage('Something went wrong, please try again')
                 }
             }
             else if(cash){
@@ -79,10 +88,17 @@ const Order = ( { username } ) => {
                 try {
                     const response = axios.post('http://localhost:5000/order', data)
                     console.log(response)
+                    setMessage('Successful order')
+                    setTimeout(() => {
+                        navigate('/')
+                    },5000)
                 } catch (err) {
                     console.log(err)
+                    setErrMessage('Something went wrong, please try again')
                 }
             }
+        } else{
+            setErrMessage('Something went wrong, please try again')
         }
     }
 
@@ -91,12 +107,16 @@ const Order = ( { username } ) => {
             <form action='/purchase' method="POST">
                 <label>Enter your name</label>
                 <input type='text' value={name} onChange={changeName} required />
+
                 <label>Enter your address</label>
                 <input type='text' value={address} onChange={changeAddress} required />
+
                 <label>Enter your phonenumber</label>
                 <input type='text' value={phonenumber} onChange={changePhonenumber} required />
+
                 <label>Enter your email address</label>
                 <input type='text' value={email} onChange={changeEmail} required />
+
                 <div className="payment">
                     <label>Payment</label>
                     <div className="radiobtn">
@@ -108,7 +128,11 @@ const Order = ( { username } ) => {
                         </div>
                     </div>
                 </div>
+                
+                {message !== '' && <p className="msg">{message}</p>}
+                {errMessage !== '' && <p className="errmsg">{errMessage}</p>}
             </form>
+
             <div className="box-10">
                 <div className='btn-10 btn-three' onClick={order}>Order</div>
             </div>

@@ -1,22 +1,13 @@
-import { resturants } from '../resturants';
-import LocationSelector from "./LocationSelector"
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
-
-const Homepage = ( { setResturant, isLoggedIn } ) => {
+const Homepage = () => {
     const navigate = useNavigate()
-    const [allResturant, setAllResturant] = useState(resturants)
-    const [isClicked, setIsClicked] = useState(false)
 
-    const showAllResturants = () => {
-        setIsClicked(false)
-        setResturant(allResturant)
-        navigate('/resturants')
+    const navigateAbout = () => {
+        navigate('/about')
     }
-    if(isClicked){
-        setResturant(allResturant)
-        navigate('/resturants')
+    const navigateLocation = () => {
+        navigate('/location')
     }
 
     return (
@@ -33,31 +24,20 @@ const Homepage = ( { setResturant, isLoggedIn } ) => {
                         <div className="wave waveBottom" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')"}}></div>
                     </div>
                 </div>
+
                 <div className="content">
                     <h1>FoodWave</h1>
                     <h1>FoodWave</h1>
                 </div>
-            </section>
-            <section className='selector-section'>
-                { !isLoggedIn &&
-                    <div className="box">
-                        <div className='btn btn-three' onClick={showAllResturants}>Show all resturants</div>
+                
+                <div className='navigatebtns'>
+                    <div className='box-11'>
+                        <div className='btn-11 btn-three' onClick={navigateLocation}>Select location</div>
                     </div>
-                }
-                <div className="content-2">
-                    <h1>Select your location</h1>
-                    <h1>Select your location</h1>
+                    <div className='box-11'>
+                        <div className='btn-11 btn-three' onClick={navigateAbout}>About functionality</div>
+                    </div>
                 </div>
-                <div className='location'>
-                    <LocationSelector resturants={allResturant} setResturant={setAllResturant} setIsClicked={setIsClicked} />
-                </div>
-            </section>
-            <section>
-                <h2>Our story</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo fuga fugit enim, quasi inventore voluptates voluptatum reprehenderit fugiat corporis commodi nostrum facere dolores blanditiis at tenetur, dicta veritatis nisi quos.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur totam unde a esse placeat! Modi voluptatibus sint asperiores fugiat iste. Qui labore aperiam dolorum ullam id illo obcaecati asperiores. Debitis!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea veritatis neque nam, magni culpa magnam maiores obcaecati a? Ipsa esse porro facere? Quasi consectetur laborum dolorum esse quam. Ipsam, beatae?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis molestiae sit, aut asperiores dolorum id, dolor iste fugit deleniti dolorem repellendus ipsum rerum optio facere, hic suscipit? Distinctio, obcaecati dolor?</p>
             </section>
         </div>
     )
