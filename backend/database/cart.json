@@ -1,3 +1,37 @@
 [
-
+  {
+    "id": 1,
+    "name": "levente",
+    "resturant": "PizzaHut",
+    "product": "Chicken",
+    "price": 1695
+  },
+  {
+    "id": 2,
+    "name": "levente",
+    "resturant": "PizzaHut",
+    "product": "Ham with Corn",
+    "price": 1780
+  },
+  {
+    "id": 3,
+    "name": "levente",
+    "resturant": "BugerKing",
+    "product": "Chili Cheese Bacon King",
+    "price": 950
+  },
+  {
+    "id": 4,
+    "name": "levente",
+    "resturant": "BugerKing",
+    "product": "Small french fries",
+    "price": 450
+  },
+  {
+    "id": 5,
+    "name": "levente",
+    "resturant": "BugerKing",
+    "product": "Mango Shake",
+    "price": 550
+  }
 ]

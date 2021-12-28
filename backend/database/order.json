@@ -1,3 +1,22 @@
 [
-
+  {
+    "id": 1,
+    "name": "Levente",
+    "address": "Budapest 19 helloworld utca 1",
+    "phonenumber": "03038756642",
+    "email": "l@l",
+    "payment": "creditcard",
+    "resturant": [
+      "PizzaHut",
+      "PizzaHut",
+      "BugerKing",
+      "BugerKing"
+    ],
+    "products": [
+      "Chicken",
+      "Ham with Corn",
+      "Chili Cheese Bacon King",
+      "Mango Shake"
+    ]
+  }
 ]
