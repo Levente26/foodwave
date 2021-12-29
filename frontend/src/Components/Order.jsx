@@ -14,7 +14,6 @@ const Order = ( { username } ) => {
     const [errMessage, setErrMessage] = useState(null)
     const navigate = useNavigate()
 
-    console.log(purchaseItems)
     useEffect(() => {
         const getPurchaseItems = async () => {
             try {

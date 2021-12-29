@@ -111,9 +111,50 @@
 /* ------------------------------------------- ABOUT --------------------------------------------- */
 
 .about{
-    width: 100%;
+    overflow-x: hidden;
     background-image: url('./images/bg.jpg');
     min-height: 100vh;
+}
+
+.paragraphs{
+    margin-top: 3rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 1.4rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.codecool{
+    width: 5rem;
+    height: 5rem;
+}
+
+@media screen and (max-width: 800px){
+    .footer{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 550px){
+    .footer{
+        width: 100%;
+    }
 }
 
 /* ---------------------------------------- LOCATION SELECTOR ----------------------------------------- */
@@ -716,7 +757,7 @@ input{
 
 /* -------------------------------------- TITLE ANIMATION ------------------------------------ */
 
-.content, .content-2, .content-3, .content-4, .content-5 {
+.content, .content-2, .content-3, .content-4, .content-5, .content-6 {
     position: relative;
     z-index: 200;
 }
@@ -764,6 +805,12 @@ input{
     width: 100%;
     text-align: center;
 }
+
+.content-6 h1{
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+}
   
 .content h1:nth-child(1) {
     color: transparent;
@@ -800,6 +847,14 @@ input{
     transform: translate(-50%,0);
 }
 
+.content-6 h1:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
 .content h1:nth-child(2) {
     color: #ffffff;
     animation: animate 4s ease-in-out infinite;
@@ -821,6 +876,11 @@ input{
 }
 
 .content-5 h1:nth-child(2) {
+    color: rgb(255, 255, 255);
+    animation: animate 4s ease-in-out infinite;
+}
+
+.content-6 h1:nth-child(2) {
     color: rgb(255, 255, 255);
     animation: animate 4s ease-in-out infinite;
 }
@@ -873,6 +933,9 @@ input{
     .content-2 h1{
         font-size: 3rem;
     }
+    .content-6 h1{
+        font-size: 2.5rem;
+    }
 }
 
 @media screen and (max-width:650px) {
@@ -912,6 +975,9 @@ input{
     .content-3 h1{
         font-size: 2rem;
     }
+    .content-6 h1{
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width:410px) {
@@ -925,6 +991,12 @@ input{
 
 @media screen and (max-width:400px) {
     .content-2 h1{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .content-6 h1{
         font-size: 1.5rem;
     }
 }
