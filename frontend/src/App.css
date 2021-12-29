@@ -8,6 +8,7 @@
 }
 
 /* ----------------------------------------- NAVBAR ------------------------------------------------------------ */
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -151,6 +152,7 @@
 .city-card:hover{
     color: #6f8fe7;
     transform: scale(1.01);
+    cursor: pointer;
 }
 
 .districts{

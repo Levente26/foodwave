@@ -64,15 +64,15 @@ const Order = ( { username } ) => {
                     products: products
                 }
                 try {
-                    const response = axios.post('http://localhost:5000/order', data)
+                    const response =  await axios.post('http://localhost:5000/order', data)
                     console.log(response.data)
-                    setMessage('Successful order')
+                    setMessage(response.data.msg)
                     setTimeout(() => {
                         navigate('/')
                     },5000)
                 } catch (err) {
                     console.log(err)
-                    setErrMessage('Something went wrong, please try again')
+                    setErrMessage(err.response.data.msg)
                 }
             }
             else if(cash){
@@ -86,15 +86,15 @@ const Order = ( { username } ) => {
                     products: products
                 }                
                 try {
-                    const response = axios.post('http://localhost:5000/order', data)
+                    const response = await axios.post('http://localhost:5000/order', data)
                     console.log(response)
-                    setMessage('Successful order')
+                    setMessage(response.data.msg)
                     setTimeout(() => {
                         navigate('/')
                     },5000)
                 } catch (err) {
                     console.log(err)
-                    setErrMessage('Something went wrong, please try again')
+                    setErrMessage(err.response.data.msg)
                 }
             }
         } else{
